@@ -1,14 +1,15 @@
 {{ define "main" }}
+{{ $page_context := . }}
 <div class="section">
 	<article class="container">
 		<header>
 			<div class="is-flex">
 				<figure class="image is-96x96" style="margin-right: 0.5em;">
-					<img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" />
+					<img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 				</figure>
 				<div>
 					<p class="title is-1">{{ .Title }}</p>
-					<p class="subtitle is-6">{{ .Summary }}</p>
+					{{ with .Params.summary }}<p class="subtitle is-6">{{ . }}</p>{{ end }}
 				</div>
 			</div>
 			<div style="margin-top: 1em;">
@@ -40,18 +41,27 @@
 			{{ if eq $has_subcomponents "no" }}
 				<ul itemprop="ingredients">
 					{{ range $ingredient := .Params.ingredients }}
-						<li itemprop="recipeIngredient">{{ $ingredient }}</li>
+						<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
 					{{ end }}
 				</ul>
 			{{ else }}
 				{{ range $subcomponent := .Params.ingredients }}
 					{{ range $name,$ingredients := $subcomponent }}
-						<p class="title is-5">{{ $name }}</p>
-						<ul itemprop="ingredients">
-							{{ range $ingredient := $ingredients }}
-								<li itemprop="recipeIngredient">{{ $ingredient }}</li>
+						{{ $ingredients_is_array := "no" }}
+						{{ if eq (printf "%T" $ingredients) "[]interface {}" }} {{ $ingredients_is_array = "yes" }} {{ end }}
+						{{ if eq $ingredients_is_array "no" }}
+							{{ if hasPrefix $ingredients "ainsley:" }}
+								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $ingredients) }}
+								<p><a class="title is-5" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
 							{{ end }}
-						</ul>
+						{{ else }}
+							<p class="title is-5">{{ title $name }}</p>
+							<ul itemprop="ingredients">
+								{{ range $ingredient := $ingredients }}
+									<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
+								{{ end }}
+							</ul>
+						{{ end }}
 					{{ end }}
 				{{ end}}
 			{{ end }}
@@ -62,20 +72,29 @@
 			{{ if eq $has_subcomponents "no" }}
 				<ul itemprop="directions">
 					{{ range $direction := .Params.directions }}
-						<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ $direction }}</li>
+						<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify  $direction }}</li>
 					{{ end }}
 				</ul>
 			{{ else }}
 				{{ range $subcomponent := .Params.directions }}
 					{{ range $name,$directions := $subcomponent }}
-						<p class="title is-5">{{ $name }}</p>
-						<ul itemprop="directions">
-							{{ range $direction := $directions }}
-								<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ $direction }}</li>
+						{{ $directions_is_array := "no" }}
+						{{ if eq (printf "%T" $directions) "[]interface {}" }} {{ $directions_is_array = "yes" }} {{ end }}
+						{{ if eq $directions_is_array "no" }}
+							{{ if hasPrefix $directions "ainsley:" }}
+								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $directions) }}
+								<p><a class="title is-5" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
 							{{ end }}
-						</ul>
+						{{ else }}
+							<p class="title is-5">{{ title $name }}</p>
+							<ul itemprop="directions">
+								{{ range $direction := $directions }}
+									<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+								{{ end }}
+							</ul>
+						{{ end }}
 					{{ end }}
-				{{ end}}
+				{{ end }}
 			{{ end }}
 
 			{{ with .Content }}
