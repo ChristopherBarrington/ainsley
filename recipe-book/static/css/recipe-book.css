@@ -1,7 +1,6 @@
 /* tag box styling */
 
-.tag .icon-text {
-	background-color: orange;
+.tag.icon-text {
 	margin-top: 1.5px;
 }
 
