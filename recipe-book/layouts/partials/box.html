@@ -1,11 +1,11 @@
 <a class="box" href="{{ .Permalink }}" aria-label="{{ .Title }}">
 	<div class="is-flex">
 		<figure class="image is-48x48" style="margin-right: 0.5em;">
-			<img alt="Thumbnail" class="is-rounded" src="{{ .Permalink }}/thumbnail.jpg" />
+			<img alt="Thumbnail" class="is-rounded" src="{{ .Permalink }}/thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 		</figure>
 		<div>
 			<div>{{ .Title }}</div>
-			<small class="has-text-grey">{{ .Summary }}</small>
+			{{ with .Params.summary }}<small class="has-text-grey">{{ truncate 60 "..." . }}</small>{{ end }}
 		</div>
 	</div>
 	<div style="margin-top: 0.5em;">
