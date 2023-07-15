@@ -1,68 +1,74 @@
 {{ define "main" }}
 DEFAULT SINGLE
 <div class="section">
-  <article class="container">
-    <header>
-      <div class="is-flex">
-        <figure class="image is-96x96" style="margin-right: 0.5em;">
-          <img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" />
-        </figure>
-        <div>
-          <h1 class="title is-1">
-            {{ .Title }}
-          </h1>
-          <h6 class="subtitle is-6">
-            {{ .Summary }}
-          </h6>
-        </div>
-      </div>
-      <div style="margin-top: 1em;">
-        <span class="tag is-primary is-light">{{ .Params.Time }}</span>
-        {{ range .Params.Tags }}
-        <a class="tag" href="/tags/{{ . }}">{{ . }}</a>
-        {{ end }}
-      </div>
-    </header>
-    <div class="content" style="margin-top: 1em;">
-      <h2>Ingredients</h2>
-      <ul itemprop="ingredients">
-        {{ $has_subcomponents := "no" }}
-        {{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
-        {{ if eq $has_subcomponents "no" }}
-          {{ range $ingredient := .Params.ingredients }}
-            <li itemprop="recipeIngredient">{{ $ingredient }}</li>
-          {{ end }}
-        {{ else }}
+	<article class="container">
+		<header>
+			<div class="is-flex">
+				<figure class="image is-96x96" style="margin-right: 0.5em;">
+					<img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" />
+				</figure>
+				<div>
+					<h1 class="title is-1">
+						{{ .Title }}
+					</h1>
+					<h6 class="subtitle is-6">
+						{{ .Summary }}
+					</h6>
+				</div>
+			</div>
+			<div style="margin-top: 1em;">
+				<span class="tag is-primary is-light">{{ .Params.Time }}</span>
+				{{ range .Params.Tags }}
+				<a class="tag" href="/tags/{{ . }}">{{ . }}</a>
+				{{ end }}
+			</div>
+		</header>
+		<div class="content" style="margin-top: 1em;">
+			<h2>Ingredients</h2>
+			<ul itemprop="ingredients">
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
 
+				{{ if eq $has_subcomponents "no" }}
+					{{ range $ingredient := .Params.ingredients }}
+						<li itemprop="recipeIngredient">{{ $ingredient }}</li>
+					{{ end }}				
+				{{ else }}
+					{{ range $subcomponent := .Params.ingredients }}
+						{{ range $name,$ingredients := $subcomponent }}
+							<li>{{ $name }}</li>
+							<ul>
+							{{ range $ingredient := $ingredients }}
+								<li itemprop="recipeIngredient">{{ $ingredient }}</li>
+							{{ end }}
+							</ul>
+						{{ end }}
+					{{ end}}
+				{{ end }}
+			</ul>
 
-
-
-
-          {{ range $subcomponent := .Params.ingredients }}
-            {{ range $name,$ingredients := $subcomponent }}
-              <li itemprop="recipeSubcomponent">{{ $name }}</li>
-              <ul itemprop="subcomponent">
-              {{ range $ingredient := $ingredients }}
-                <li itemprop="recipeIngredient">{{ $ingredient }}</li>
-              {{ end }}
-              </ul>
-            {{ end }}
-          {{ end}}
-
-
-
-
-
-
-      {{ end }}
-      </ul>
-      <h2>Directions</h2>
-      <ul itemprop="directions">
-        {{ range $direction := .Params.directions}}
-          <li itemprop="recipeStep" onclick="this.classList.toggle('strike')">{{ $direction }}</li>
-        {{ end }}
-      </ul>
-    </div>
-  </article>
+			<h2>Directions</h2>
+			<ul itemprop="directions">
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+				{{ if eq $has_subcomponents "no" }}
+					{{ range $direction := .Params.directions }}
+						<li itemprop="recipeDirection">{{ $direction }}</li>
+					{{ end }}				
+				{{ else }}
+					{{ range $subcomponent := .Params.directions }}
+						{{ range $name,$directions := $subcomponent }}
+							<li>{{ $name }}</li>
+							<ul>
+							{{ range $direction := $directions }}
+								<li itemprop="recipeDirection">{{ $direction }}</li>
+							{{ end }}
+							</ul>
+						{{ end }}
+					{{ end}}
+				{{ end }}
+			</ul>
+		</div>
+	</article>
 </div>
 {{ end }}
