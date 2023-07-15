@@ -1,0 +1,13 @@
+/* tag box styling */
+
+.tag .icon-text {
+	background-color: orange;
+	margin-top: 1.5px;
+}
+
+/* recipe styling */
+
+.strike {
+    /* when item is clicked, decorate the text */
+    text-decoration: line-through;
+}

@@ -28,12 +28,7 @@
 				{{ end }}
 
 				{{ range .Params.Tags }}
-					<a class="tag" href="/tags/{{ . }}">
-						<span class="icon-text">
-							<span class="icon"><i class="fas fa-tag"></i></span>
-							<span>{{ . }}</span>
-						</span>
-					</a>
+					<a class="tag" href="/tags/{{ . }}"><span>{{ . }}</span></a>
 				{{ end }}
 			</div>
 		</header>
