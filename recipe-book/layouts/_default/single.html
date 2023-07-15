@@ -7,12 +7,8 @@
 					<img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" />
 				</figure>
 				<div>
-					<h1 class="title is-1">
-						{{ .Title }}
-					</h1>
-					<h6 class="subtitle is-6">
-						{{ .Summary }}
-					</h6>
+					<p class="title is-1">{{ .Title }}</p>
+					<p class="subtitle is-6">{{ .Summary }}</p>
 				</div>
 			</div>
 			<div style="margin-top: 1em;">
@@ -42,50 +38,54 @@
 			</div>
 		</header>
 		<div class="content" style="margin-top: 1em;">
-			<h2>Ingredients</h2>
-			<ul itemprop="ingredients">
-				{{ $has_subcomponents := "no" }}
-				{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+			<p class="title is-3">Ingredients</p>
+			{{ $has_subcomponents := "no" }}
+			{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
 
-				{{ if eq $has_subcomponents "no" }}
+			{{ if eq $has_subcomponents "no" }}
+				<ul itemprop="ingredients">
 					{{ range $ingredient := .Params.ingredients }}
 						<li itemprop="recipeIngredient">{{ $ingredient }}</li>
-					{{ end }}				
-				{{ else }}
-					{{ range $subcomponent := .Params.ingredients }}
-						{{ range $name,$ingredients := $subcomponent }}
-							<li>{{ $name }}</li>
-							<ul>
+					{{ end }}
+				</ul>
+			{{ else }}
+				{{ range $subcomponent := .Params.ingredients }}
+					{{ range $name,$ingredients := $subcomponent }}
+						<p class="title is-5">{{ $name }}</p>
+						<ul itemprop="ingredients">
 							{{ range $ingredient := $ingredients }}
 								<li itemprop="recipeIngredient">{{ $ingredient }}</li>
 							{{ end }}
-							</ul>
-						{{ end }}
-					{{ end}}
-				{{ end }}
-			</ul>
+						</ul>
+					{{ end }}
+				{{ end}}
+			{{ end }}
 
-			<h2>Directions</h2>
-			<ul itemprop="directions">
-				{{ $has_subcomponents := "no" }}
-				{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
-				{{ if eq $has_subcomponents "no" }}
+			<p class="title is-3">Directions</p>
+			{{ $has_subcomponents := "no" }}
+			{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+			{{ if eq $has_subcomponents "no" }}
+				<ul itemprop="directions">
 					{{ range $direction := .Params.directions }}
 						<li itemprop="recipeDirection">{{ $direction }}</li>
-					{{ end }}				
-				{{ else }}
-					{{ range $subcomponent := .Params.directions }}
-						{{ range $name,$directions := $subcomponent }}
-							<li>{{ $name }}</li>
-							<ul>
+					{{ end }}
+				</ul>
+			{{ else }}
+				{{ range $subcomponent := .Params.directions }}
+					{{ range $name,$directions := $subcomponent }}
+						<p class="title is-5">{{ $name }}</p>
+						<ul itemprop="directions">
 							{{ range $direction := $directions }}
 								<li itemprop="recipeDirection">{{ $direction }}</li>
 							{{ end }}
-							</ul>
-						{{ end }}
-					{{ end}}
-				{{ end }}
-			</ul>
+						</ul>
+					{{ end }}
+				{{ end}}
+			{{ end }}
+
+			{{ with .Content }}
+				<div class="notification is-info is-light">{{ . }}</div>
+			{{ end }}
 		</div>
 	</article>
 </div>
