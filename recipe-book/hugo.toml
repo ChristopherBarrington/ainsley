@@ -1,0 +1,8 @@
+baseURL = ""
+languageCode = "en-gb"
+title = "The Marlington Recipe Book"
+# theme = "recipe-book"
+
+[params]
+  author = "Christopher Barrington"
+  description = "Recipes collected by The Marlingtons"
