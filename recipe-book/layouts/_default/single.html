@@ -26,9 +26,35 @@ DEFAULT SINGLE
     <div class="content" style="margin-top: 1em;">
       <h2>Ingredients</h2>
       <ul itemprop="ingredients">
-        {{ range $ingredient := .Params.ingredients}}
-          <li itemprop="recipeIngredient">{{ $ingredient }}</li>
-        {{ end }}
+        {{ $has_subcomponents := "no" }}
+        {{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+        {{ if eq $has_subcomponents "no" }}
+          {{ range $ingredient := .Params.ingredients }}
+            <li itemprop="recipeIngredient">{{ $ingredient }}</li>
+          {{ end }}
+        {{ else }}
+
+
+
+
+
+          {{ range $subcomponent := .Params.ingredients }}
+            {{ range $name,$ingredients := $subcomponent }}
+              <li itemprop="recipeSubcomponent">{{ $name }}</li>
+              <ul itemprop="subcomponent">
+              {{ range $ingredient := $ingredients }}
+                <li itemprop="recipeIngredient">{{ $ingredient }}</li>
+              {{ end }}
+              </ul>
+            {{ end }}
+          {{ end}}
+
+
+
+
+
+
+      {{ end }}
       </ul>
       <h2>Directions</h2>
       <ul itemprop="directions">
