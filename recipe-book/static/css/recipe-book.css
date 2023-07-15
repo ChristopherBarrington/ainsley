@@ -10,3 +10,8 @@
     /* when item is clicked, decorate the text */
     text-decoration: line-through;
 }
+
+/* ingredient/direction subcomponent links */
+a.title.is-5 {
+    color: #485fc7;
+}
