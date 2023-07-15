@@ -62,7 +62,7 @@
 			{{ if eq $has_subcomponents "no" }}
 				<ul itemprop="directions">
 					{{ range $direction := .Params.directions }}
-						<li itemprop="recipeDirection">{{ $direction }}</li>
+						<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ $direction }}</li>
 					{{ end }}
 				</ul>
 			{{ else }}
@@ -71,7 +71,7 @@
 						<p class="title is-5">{{ $name }}</p>
 						<ul itemprop="directions">
 							{{ range $direction := $directions }}
-								<li itemprop="recipeDirection">{{ $direction }}</li>
+								<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ $direction }}</li>
 							{{ end }}
 						</ul>
 					{{ end }}
