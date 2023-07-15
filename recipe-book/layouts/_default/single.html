@@ -16,9 +16,28 @@
 				</div>
 			</div>
 			<div style="margin-top: 1em;">
-				<span class="tag is-primary is-light">{{ .Params.Time }}</span>
+
+				{{ if $time := .Params.time }}
+					<span class="tag is-primary is-light icon-text">
+						<span class="icon"><i class="fas fa-clock"></i></span>
+						<span>{{ $time }}</span>
+					</span>
+				{{ end }}
+
+				{{ if $servings := .Params.servings }}
+					<span class="tag is-primary is-light icon-text">
+						<span class="icon"><i class="fas fa-users"></i></span>
+						<span>{{ $servings }}</span>
+					</span>
+				{{ end }}
+
 				{{ range .Params.Tags }}
-				<a class="tag" href="/tags/{{ . }}">{{ . }}</a>
+					<a class="tag" href="/tags/{{ . }}">
+						<span class="icon-text">
+							<span class="icon"><i class="fas fa-tag"></i></span>
+							<span>{{ . }}</span>
+						</span>
+					</a>
 				{{ end }}
 			</div>
 		</header>
