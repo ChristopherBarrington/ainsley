@@ -20,9 +20,49 @@ a.title.is-5 {
 /* recipe card listing box */
 
 .recipe-card .summary {
+    /* wrap long summaries */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* search results */
+
+.search-results {
+    position: absolute;
+    z-index: 9999;
+    margin-left: 2.0em;
+    margin-right: 2.0em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: hsl(171, 100%, 41%);
+    border-width: 0 1px 1px 1px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+.search-results:empty {
+    padding: 0;
+}
+
+.search-result:nth-child(even) {
+}
+
+.search-result {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
+    /* wrap long summaries */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result:hover {
+}
+

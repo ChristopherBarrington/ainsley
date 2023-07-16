@@ -6,3 +6,13 @@ title = "The Marlington Recipe Book"
 [params]
   author = "Christopher Barrington"
   description = "Recipes collected by The Marlingtons"
+
+[outputs]
+  home = ["HTML","RSS", "JSON", "SearchIndex"]
+  section = ["HTML","RSS", "JSON"]
+
+[outputFormats]
+  [outputFormats.SearchIndex]
+    mediaType = "application/json"
+    baseName = "searchindex"
+    isPlainText = true
