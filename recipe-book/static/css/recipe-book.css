@@ -12,6 +12,17 @@
 }
 
 /* ingredient/direction subcomponent links */
+
 a.title.is-5 {
     color: #485fc7;
+}
+
+/* recipe card listing box */
+
+.recipe-card .summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
