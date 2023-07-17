@@ -1,11 +1,11 @@
 <a class="box" href="{{ .Permalink }}" aria-label="{{ .Title }}">
 	<div class="recipe-card is-flex">
-		<figure class="image is-48x48" style="margin-right: 0.5em;">
+		<figure class="image is-48x48">
 			<img alt="Thumbnail" class="is-rounded" src="{{ .Permalink }}/thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 		</figure>
 		<div>
-			<div class="p">{{ .Title }}</div>
-			{{ with .Params.summary }}<small class="summary has-text-grey">{{ . }}</small>{{ end }}
+			<div class="is-content box-title">{{ .Title }}</div>
+			{{ with .Params.summary }}<small class="box-summary has-text-grey">{{ . }}</small>{{ end }}
 		</div>
 	</div>
 	<div style="margin-top: 0.5em;">
