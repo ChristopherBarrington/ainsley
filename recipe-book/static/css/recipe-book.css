@@ -30,10 +30,17 @@ a.title.is-5 {
 
 .recipe-card .image {
     margin-right: 0.5em;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
-/* search results */
+.recipe-card .image .thumbnail {
+    /* make sure bigger pictures are squared */
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+}
+
+/* recipe search results */
 
 .search-results {
     position: absolute;
