@@ -30,10 +30,19 @@ a.title.is-5 {
 
 .recipe-card .image {
     margin-right: 0.5em;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
-/* search results */
+/* thumbnail images */
+
+.image .thumbnail {
+    /* make sure bigger pictures are squared */
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+}
+
+/* recipe search results */
 
 .search-results {
     position: absolute;
@@ -71,3 +80,8 @@ a.title.is-5 {
 .search-result:hover {
 }
 
+/* section elements */
+
+.recipe-page .image {
+    flex-shrink: 0;
+}
