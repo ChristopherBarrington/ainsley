@@ -33,7 +33,9 @@ a.title.is-5 {
     flex-shrink: 0;
 }
 
-.recipe-card .image .thumbnail {
+/* thumbnail images */
+
+.image .thumbnail {
     /* make sure bigger pictures are squared */
     object-fit: cover;
     width: inherit;
@@ -78,3 +80,8 @@ a.title.is-5 {
 .search-result:hover {
 }
 
+/* section elements */
+
+.recipe-page .image {
+    flex-shrink: 0;
+}

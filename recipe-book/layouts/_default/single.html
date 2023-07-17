@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ $page_context := . }}
-<div class="section">
+<div class="recipe-page section">
 	<article class="container">
 		<header>
 			<div class="is-flex">
 				<figure class="image is-96x96" style="margin-right: 0.5em;">
-					<img alt="Thumbnail" class="is-rounded" src="thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
+					<img alt="Thumbnail" class="thumbnail is-rounded" src="thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 				</figure>
 				<div>
 					<p class="title is-1">{{ .Title }}</p>
