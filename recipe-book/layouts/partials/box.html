@@ -1,5 +1,9 @@
-<a class="box" href="{{ .Permalink }}" aria-label="{{ .Title }}">
-	<div class="recipe-card is-flex">
+{{ $is_favourite := "no" }}
+{{ if in .Params.Tags "favourite" }}{{ $is_favourite = "yes" }} {{ end }}
+{{ $favourite_class := "" }}{{ if eq $is_favourite "yes" }}{{ $favourite_class = "favourite" }}{{ end }}
+
+<a class="recipe-card box {{ $favourite_class }}" href="{{ .Permalink }}" aria-label="{{ .Title }}">
+	<div class="is-flex">
 		<figure class="image is-48x48">
 			<img alt="Thumbnail" class="thumbnail is-rounded" src="{{ .Permalink }}/thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 		</figure>
@@ -8,12 +12,12 @@
 			{{ with .Params.summary }}<small class="box-summary has-text-grey">{{ . }}</small>{{ end }}
 		</div>
 	</div>
+
 	<div style="margin-top: 0.5em;">
 		{{ with .Params.time }}<span class="tag time is-primary is-light icon-text"><span class="icon"><i class="fas fa-clock"></i></span><span>{{ . }}</span></span>{{ end }}
 		{{ range $tag := .Params.Tags }}
 			{{ $favourite_tag := "" }}
-			{{ if eq $tag "favourite"}}{{ $favourite_tag = " favourite" }}{{ end }}
-			<span class="tag {{ $favourite_tag }}">{{ $tag }}</span>
+			{{ if ne $tag "favourite"}}<span class="tag">{{ $tag }}</span>{{ end }}
 		{{ end }}
 	</div>
 </a>
