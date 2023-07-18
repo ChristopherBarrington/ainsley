@@ -4,26 +4,6 @@
 	margin-top: 1.5px;
 }
 
-.box .tag.time, .box .tag.favourite {
-    border-style: solid;
-    border-width: 0.5px;
-}
-
-.box .tag.time {
-    background-color: hsl(171, 100%, 96%)   ;
-    border-color: hsl(171, 100%, 41%);
-}
-
-.box .tag.favourite {
-    background-color: hsl(347, 90%, 96%);
-    border-color: hsl(348, 100%, 61%);
-}
-
-a.tag:hover {
-  transform: scale(1.2);
-  transition: all ease 500ms;
-}
-
 /* recipe styling */
 
 .strike {
@@ -39,6 +19,10 @@ a.title.is-5 {
 
 /* recipe card listing box */
 
+.recipe-card {
+    background-color: transparent;
+}
+
 .recipe-card .box-summary {
     /* wrap long summaries */
     display: -webkit-box;
@@ -48,9 +32,11 @@ a.title.is-5 {
     text-overflow: ellipsis;
 }
 
-.recipe-card .image {
-    margin-right: 0.5em;
-    flex-shrink: 0;
+
+.recipe-card.favourite {
+    border-color: hsl(348, 100%, 61%);
+    border-width: 0.5px;
+    border-style: solid;
 }
 
 /* thumbnail images */
@@ -60,6 +46,11 @@ a.title.is-5 {
     object-fit: cover;
     width: inherit;
     height: inherit;
+}
+
+.recipe-card .image, .recipe-page .image {
+    margin-right: 0.5em;
+    flex-shrink: 0;
 }
 
 /* recipe search results */
@@ -98,17 +89,4 @@ a.title.is-5 {
 }
 
 .search-result:hover {
-}
-
-/* section elements */
-
-.recipe-page .image {
-    flex-shrink: 0;
-}
-
-/* main elements */
-
-main a.box:hover{
-  transform: scale(1.03);
-  transition: all ease 500ms;
 }
