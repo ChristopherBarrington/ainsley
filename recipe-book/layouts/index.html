@@ -1,69 +1,67 @@
 {{ define "main" }}
 <section class="section">
-  <div class="container">
+	<div class="container">
 
-    <!--  -->
+		<!--  -->
 
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="search-input">
-          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
-            <div class="field">
-              <p class="control has-icons-left has-icons-right">
-                <input id="query" name="query" class="search-text input is-rounded is-primary has-text-dark" type="search" placeholder="big kahuna burger" maxlength="128" autocomplete="off">
-                <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
-              </p>
-            </div>
-          </form>
-        </div>
+		<div class="columns is-centered">
+			<div class="column">
+				<div class="search-input">
+					<form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+						<div class="field">
+							<p class="control has-icons-left has-icons-right">
+								<input id="query" name="query" class="search-text input is-rounded is-primary has-text-dark" type="search" placeholder="big kahuna burger" maxlength="128" autocomplete="off">
+								<span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+							</p>
+						</div>
+					</form>
+				</div>
 
-        <div class="search-results has-background-white"></div>
-        <template>
-          <article class="search-result list-view">
-            <a class="mb--xxs is-content has-text-dark" href="#">TEXT HERE</a>
-          </article>
-        </template>
-      </div>
-    </div>
+				<div class="search-results has-background-white"></div>
+				<template>
+					<article class="search-result list-view">
+						<a class="mb--xxs is-content has-text-dark" href="#">TEXT HERE</a>
+					</article>
+				</template>
+			</div>
+		</div>
 
-    <!--  -->
+		<!--  -->
 
-    <div class="columns is-centered">
-      <div class="column">
-        <div style="margin-bottom: 1em;">
-          {{ range .Site.Taxonomies.tags }}
-          <a class="tag" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
-          {{ end }}
-        </div>
-      </div>
-    </div>
+		<div class="columns is-centered">
+			<div class="column">
+				{{ range .Site.Taxonomies.tags }}
+					<a class="tag" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+				{{ end }}
+			</div>
+		</div>
 
-    <!--  -->
+		<!--  -->
 
-    <div class="columns is-centered">
-      <div class="column">
-        {{ range $index, $page := .Site.RegularPages }}
-          {{ if eq (mod $index 4) 0 }}{{ partial "box.html" $page }}{{ end }}
-        {{ end }}
-      </div>
-      <div class="column">
-        {{ range $index, $page := .Site.RegularPages }}
-          {{ if eq (mod $index 4) 1 }}{{ partial "box.html" $page }}{{ end }}
-        {{ end }}
-      </div>
-      <div class="column">
-        {{ range $index, $page := .Site.RegularPages }}
-          {{ if eq (mod $index 4) 2 }}{{ partial "box.html" $page }}{{ end }}
-        {{ end }}
-      </div>
-      <div class="column">
-        {{ range $index, $page := .Site.RegularPages }}
-          {{ if eq (mod $index 4) 3 }}{{ partial "box.html" $page }}{{ end }}
-        {{ end }}
-      </div>
-    </div>
+		<div class="columns is-centered">
+			<div class="column">
+				{{ range $index, $page := .Site.RegularPages }}
+					{{ if eq (mod $index 4) 0 }}{{ partial "box.html" $page }}{{ end }}
+				{{ end }}
+			</div>
+			<div class="column">
+				{{ range $index, $page := .Site.RegularPages }}
+					{{ if eq (mod $index 4) 1 }}{{ partial "box.html" $page }}{{ end }}
+				{{ end }}
+			</div>
+			<div class="column">
+				{{ range $index, $page := .Site.RegularPages }}
+					{{ if eq (mod $index 4) 2 }}{{ partial "box.html" $page }}{{ end }}
+				{{ end }}
+			</div>
+			<div class="column">
+				{{ range $index, $page := .Site.RegularPages }}
+					{{ if eq (mod $index 4) 3 }}{{ partial "box.html" $page }}{{ end }}
+				{{ end }}
+			</div>
+		</div>
 
-    <!--  -->
-  </div>
+		<!--  -->
+	</div>
 </section>
 {{ end }}
