@@ -9,7 +9,11 @@
 		</div>
 	</div>
 	<div style="margin-top: 0.5em;">
-		{{ with .Params.time }}<span class="tag is-primary is-light icon-text"><span class="icon"><i class="fas fa-clock"></i></span><span>{{ . }}</span></span>{{ end }}
-		{{ range .Params.Tags }}<span class="tag">{{ . }}</span>{{ end }}
+		{{ with .Params.time }}<span class="tag time is-primary is-light icon-text"><span class="icon"><i class="fas fa-clock"></i></span><span>{{ . }}</span></span>{{ end }}
+		{{ range $tag := .Params.Tags }}
+			{{ $favourite_tag := "" }}
+			{{ if eq $tag "favourite"}}{{ $favourite_tag = " favourite" }}{{ end }}
+			<span class="tag {{ $favourite_tag }}">{{ $tag }}</span>
+		{{ end }}
 	</div>
 </a>
