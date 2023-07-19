@@ -1,11 +1,12 @@
 {{ $is_favourite := "no" }}
 {{ if in .Params.Tags "favourite" }}{{ $is_favourite = "yes" }} {{ end }}
 {{ $favourite_class := "" }}{{ if eq $is_favourite "yes" }}{{ $favourite_class = "favourite" }}{{ end }}
+{{ $thumbnail := partial "get_thumbnail" (dict "context" .) }}
 
 <a class="recipe-card box {{ $favourite_class }}" href="{{ .Permalink }}" aria-label="{{ .Title }}">
 	<div class="is-flex">
 		<figure class="image is-48x48">
-			<img alt="Thumbnail" class="thumbnail is-rounded" src="{{ .Permalink }}/thumbnail.jpg" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
+			<img alt="Thumbnail" class="thumbnail is-rounded" src="{{ $thumbnail }}" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
 		</figure>
 		<div>
 			<div class="is-content box-title">{{ .Title }}</div>
