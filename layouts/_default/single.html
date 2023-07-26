@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div style="margin-top: 1em;">
-
+				<!-- add time tag, if available -->
 				{{ if $time := .Params.time }}
 					<span class="tag time is-primary is-light icon-text">
 						<span class="icon"><i class="fas fa-clock"></i></span>
@@ -24,6 +24,7 @@
 					</span>
 				{{ end }}
 
+				<!-- add number of servings tag, if available -->
 				{{ if $servings := .Params.servings }}
 					<span class="tag servings is-primary is-light icon-text">
 						<span class="icon"><i class="fas fa-users"></i></span>
@@ -31,6 +32,8 @@
 					</span>
 				{{ end }}
 
+
+				<!-- add tags for each tag in the list -->
 				{{ range .Params.Tags }}
 					<a class="tag" href="/tags/{{ . }}"><span>{{ . }}</span></a>
 				{{ end }}
