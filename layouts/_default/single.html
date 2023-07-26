@@ -32,6 +32,30 @@
 					</span>
 				{{ end }}
 
+				<!-- add a linkout button, if available -->
+				{{ if $linkout := .Params.linkout }}
+					<!-- add youtube popup modal, if appropriate -->
+					{{ if strings.HasPrefix $linkout "https://youtu.be/" }}
+						{{ $linkout = replace $linkout "youtu.be" "youtube.com/embed" }}
+						<a class="js-modal-trigger" data-target="youtube-js-modal">
+							<span class="tag youtube icon-text">
+								<span class="icon"><i class="fab fa-youtube" style="color: #ff2600;"></i></span>
+								<span>YouTube</span>
+							</span>					
+						</a>
+
+						<div id="youtube-js-modal" class="modal">
+						  <div class="modal-background"></div>
+						  <div class="modal-content">
+						      <iframe id="youtube" type="text/html"
+						      	width="640" height="360"
+								src="{{ $linkout }}?enablejsapi=1">
+							</iframe>
+						  </div>
+						  <button class="modal-close is-large" aria-label="close"></button>
+						</div>
+					{{ end }}
+				{{ end }}
 
 				<!-- add tags for each tag in the list -->
 				{{ range .Params.Tags }}
