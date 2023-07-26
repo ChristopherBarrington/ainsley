@@ -46,10 +46,11 @@
 					<div id="youtube-js-modal" class="modal">
 					  <div class="modal-background"></div>
 					  <div class="modal-content">
-					      <iframe id="youtube" type="text/html"
-					      	width="640" height="360"
-							src="{{ $linkout }}?enablejsapi=1">
-						</iframe>
+					  	<figure class="image is-16by9">
+						      <iframe id="youtube" class="has-ratio" type="text/html"
+								src="{{ $linkout }}?controls=1&autohide=1&enablejsapi=1&modestbranding=1&rel=0&playsinline=0&showinfo=0">
+							</iframe>
+						</figure>
 					  </div>
 					  <button class="modal-close is-large" aria-label="close"></button>
 					</div>
