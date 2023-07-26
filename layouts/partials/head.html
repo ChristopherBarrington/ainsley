@@ -1,6 +1,7 @@
 {{ $flexsearch := resources.Get "libs/flexsearch.compact.js" -}}
 {{ $search_opts := dict "params" (dict "searchLimit" (site.Params.searchLimit | default 10)) -}}
 {{ $search := resources.Get "js/search.js" | js.Build $search_opts -}}
+{{ $youtube := resources.Get "js/youtube_modal.js" | js.Build -}}
 
 <head>
   <meta charset="utf-8">
@@ -17,4 +18,5 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script defer src="{{ $flexsearch.RelPermalink }}"></script>
   <script defer src="{{ $search.RelPermalink }}"></script>
+	<script defer src="{{ $youtube.RelPermalink }}"></script>
 </head>
