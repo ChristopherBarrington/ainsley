@@ -5,101 +5,150 @@
 
 <div class="recipe-page section">
 	<article class="container">
-		<header>
-			<div class="is-flex">
-				<figure class="image is-96x96" style="margin-right: 0.5em;">
-					<img alt="Thumbnail" class="thumbnail is-rounded" src="{{ $thumbnail }}" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
-				</figure>
-				<div>
-					<p class="title is-2">{{ .Title }}</p>
-					{{ with .Params.summary }}<p class="subtitle is-6">{{ . }}</p>{{ end }}
-				</div>
+		<!-- show the thumbnail, title and subtitle -->
+		<div class="is-flex" style="margin-top: 0em; margin-bottom: 3em;">
+			<figure class="image is-96x96" style="margin-right: 0.5em;">
+				<img alt="Thumbnail" class="thumbnail is-rounded" src="{{ $thumbnail }}" onerror="this.onerror=null; this.src='/img/default-thumbnail.jpg'"/>
+			</figure>
+			<div>
+				<p class="title is-2">{{ .Title }}</p>
+				{{ with .Params.summary }}<p class="subtitle is-6">{{ . }}</p>{{ end }}
 			</div>
-			<div style="margin-top: 1em;">
+		</div>
 
-				{{ if $time := .Params.time }}
-					<span class="tag time is-primary is-light icon-text">
-						<span class="icon"><i class="fas fa-clock"></i></span>
-						<span>{{ $time }}</span>
-					</span>
-				{{ end }}
-
-				{{ if $servings := .Params.servings }}
-					<span class="tag servings is-primary is-light icon-text">
-						<span class="icon"><i class="fas fa-users"></i></span>
-						<span>{{ $servings }}</span>
-					</span>
-				{{ end }}
-
-				{{ range .Params.Tags }}
-					<a class="tag" href="/tags/{{ . }}"><span>{{ . }}</span></a>
-				{{ end }}
-			</div>
-		</header>
-		<div class="content" style="margin-top: 1em;">
-			<p class="title is-4">Ingredients</p>
-			{{ $has_subcomponents := "no" }}
-			{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
-
-			{{ if eq $has_subcomponents "no" }}
-				<ul itemprop="ingredients">
-					{{ range $ingredient := .Params.ingredients }}
-						<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
-					{{ end }}
-				</ul>
-			{{ else }}
-				{{ range $subcomponent := .Params.ingredients }}
-					{{ range $name,$ingredients := $subcomponent }}
-						{{ $ingredients_is_array := "no" }}
-						{{ if eq (printf "%T" $ingredients) "[]interface {}" }} {{ $ingredients_is_array = "yes" }} {{ end }}
-						{{ if eq $ingredients_is_array "no" }}
-							{{ if hasPrefix $ingredients "ainsley:" }}
-								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $ingredients) }}
-								<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
-							{{ end }}
-						{{ else }}
-							<p class="title is-6">{{ title $name }}</p>
-							<ul itemprop="ingredients">
-								{{ range $ingredient := $ingredients }}
-									<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
-								{{ end }}
-							</ul>
-						{{ end }}
-					{{ end }}
-				{{ end}}
+		<!-- add a first row of badges and a linkout -->
+		<div id='badges' class="content" style="margin-top: 1em; margin-bottom: 0em;">
+			<!-- add time tag, if available -->
+			{{ if $time := .Params.time }}
+				<span class="tag time is-primary is-light icon-text">
+					<span class="icon"><i class="fas fa-clock"></i></span>
+					<span>{{ $time }}</span>
+				</span>
 			{{ end }}
 
-			<p class="title is-4">Directions</p>
-			{{ $has_subcomponents := "no" }}
-			{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
-			{{ if eq $has_subcomponents "no" }}
-				<ul itemprop="directions">
-					{{ range $direction := .Params.directions }}
-						<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify  $direction }}</li>
-					{{ end }}
-				</ul>
-			{{ else }}
-				{{ range $subcomponent := .Params.directions }}
-					{{ range $name,$directions := $subcomponent }}
-						{{ $directions_is_array := "no" }}
-						{{ if eq (printf "%T" $directions) "[]interface {}" }} {{ $directions_is_array = "yes" }} {{ end }}
-						{{ if eq $directions_is_array "no" }}
-							{{ if hasPrefix $directions "ainsley:" }}
-								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $directions) }}
-								<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
-							{{ end }}
-						{{ else }}
-							<p class="title is-6">{{ title $name }}</p>
-							<ul itemprop="directions">
-								{{ range $direction := $directions }}
-									<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+			<!-- add number of servings tag, if available -->
+			{{ if $servings := .Params.servings }}
+				<span class="tag servings is-primary is-light icon-text">
+					<span class="icon"><i class="fas fa-users"></i></span>
+					<span>{{ $servings }}</span>
+				</span>
+			{{ end }}
+
+			<!-- add a linkout button, if available -->
+			{{ if $linkout := .Params.linkout }}
+				{{ $linkout = cond (strings.HasPrefix $linkout "http") $linkout (printf "http://%s" $linkout)}}
+				{{ $linkout = replaceRE "//wwww." "//" $linkout}}
+				{{ $hostname := (urls.Parse $linkout).Hostname }}
+
+				<!-- add youtube popup modal, if appropriate -->
+				{{ if eq $hostname "youtu.be" }}
+					{{ $linkout = replace $linkout "youtu.be" "youtube.com/embed" }}
+					<a class="js-modal-trigger" data-target="youtube-js-modal">
+						<span class="tag youtube icon-text is-primary is-light">
+							<span class="icon"><i class="fab fa-youtube" style="color: #ff2600;"></i></span>
+							<span>{{ $hostname }}</span>
+						</span>					
+					</a>
+
+					<div id="youtube-js-modal" class="modal">
+					  <div class="modal-background"></div>
+					  <div class="modal-content">
+					  	<figure class="image is-16by9">
+						      <iframe id="youtube" class="has-ratio" type="text/html"
+								src="{{ $linkout }}?controls=1&autohide=1&enablejsapi=1&modestbranding=1&rel=0&playsinline=0&showinfo=0">
+							</iframe>
+						</figure>
+					  </div>
+					  <button class="modal-close is-large" aria-label="close"></button>
+					</div>
+				{{ else }}
+					<a class="tag linkout icon-text is-primary is-light" href="{{ $linkout }}" target="_blank">
+						<span class="icon"><i class="fas fa-paperclip"></i></span>
+						<span>{{ $hostname }}</span>
+					</a>					
+				{{ end }}
+			{{ end }}
+		</div>
+
+		<!-- add the recipe tags -->
+		<div id='tags' class="content" style="margin-top: 1em; margin-bottom: 0em">
+			{{ range .Params.Tags }}
+				<a class="tag" href="/tags/{{ . }}"><span>{{ . }}</span></a>
+			{{ end }}
+		</div>
+
+		<!-- add the recipe -->
+		<div class="content" style="margin-top: 2em; margin-bottom: 0em">
+			<!-- if there are ingredients, list them -->
+			{{ if .Params.ingredients }}
+				<p class="title is-4">Ingredients</p>
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+
+				{{ if eq $has_subcomponents "no" }}
+					<ul itemprop="ingredients">
+						{{ range $ingredient := .Params.ingredients }}
+							<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
+						{{ end }}
+					</ul>
+				{{ else }}
+					{{ range $subcomponent := .Params.ingredients }}
+						{{ range $name,$ingredients := $subcomponent }}
+							{{ $ingredients_is_array := "no" }}
+							{{ if eq (printf "%T" $ingredients) "[]interface {}" }} {{ $ingredients_is_array = "yes" }} {{ end }}
+							{{ if eq $ingredients_is_array "no" }}
+								{{ if hasPrefix $ingredients "ainsley:" }}
+									{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $ingredients) }}
+									<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
 								{{ end }}
-							</ul>
+							{{ else }}
+								<p class="title is-6">{{ title $name }}</p>
+								<ul itemprop="ingredients">
+									{{ range $ingredient := $ingredients }}
+										<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
+									{{ end }}
+								</ul>
+							{{ end }}
+						{{ end }}
+					{{ end}}
+				{{ end }}
+			{{ end }}
+
+			<!-- if there are directions, show them -->
+			{{ if .Params.directions }}
+				<p class="title is-4">Directions</p>
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+				{{ if eq $has_subcomponents "no" }}
+					<ul itemprop="directions">
+						{{ range $direction := .Params.directions }}
+							<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+						{{ end }}
+					</ul>
+				{{ else }}
+					{{ range $subcomponent := .Params.directions }}
+						{{ range $name,$directions := $subcomponent }}
+							{{ $directions_is_array := "no" }}
+							{{ if eq (printf "%T" $directions) "[]interface {}" }} {{ $directions_is_array = "yes" }} {{ end }}
+							{{ if eq $directions_is_array "no" }}
+								{{ if hasPrefix $directions "ainsley:" }}
+									{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $directions) }}
+									<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
+								{{ end }}
+							{{ else }}
+								<p class="title is-6">{{ title $name }}</p>
+								<ul itemprop="directions">
+									{{ range $direction := $directions }}
+										<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+									{{ end }}
+								</ul>
+							{{ end }}
 						{{ end }}
 					{{ end }}
 				{{ end }}
 			{{ end }}
 
+			<!-- add a box with content, if provided -->
 			{{ with .Content }}
 				<div class="notification is-info is-light">{{ . }}</div>
 			{{ end }}

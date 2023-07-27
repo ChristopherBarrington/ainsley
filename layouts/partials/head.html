@@ -1,20 +1,22 @@
 {{ $flexsearch := resources.Get "libs/flexsearch.compact.js" -}}
 {{ $search_opts := dict "params" (dict "searchLimit" (site.Params.searchLimit | default 10)) -}}
 {{ $search := resources.Get "js/search.js" | js.Build $search_opts -}}
+{{ $youtube := resources.Get "js/youtube_modal.js" | js.Build -}}
 
 <head>
-  <meta charset="utf-8">
-  <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }}{{ end }}</title>
-  <meta name="author" content="{{ .Site.Params.author }}">
-  <meta name="description" content="{{ .Site.Params.description }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="/css/recipe-book.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script defer src="{{ $flexsearch.RelPermalink }}"></script>
-  <script defer src="{{ $search.RelPermalink }}"></script>
+	<meta charset="utf-8">
+	<title>{{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }}{{ end }}</title>
+	<meta name="author" content="{{ .Site.Params.author }}">
+	<meta name="description" content="{{ .Site.Params.description }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+	<link rel="stylesheet" href="/css/recipe-book.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<script defer src="{{ $flexsearch.RelPermalink }}"></script>
+	<script defer src="{{ $search.RelPermalink }}"></script>
+	<script defer src="{{ $youtube.RelPermalink }}"></script>
 </head>
