@@ -76,65 +76,73 @@
 				<a class="tag" href="/tags/{{ . }}"><span>{{ . }}</span></a>
 			{{ end }}
 		</div>
-		<div class="content" style="margin-top: 3em; margin-bottom: 0em">
-			<p class="title is-4">Ingredients</p>
-			{{ $has_subcomponents := "no" }}
-			{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
 
-			{{ if eq $has_subcomponents "no" }}
-				<ul itemprop="ingredients">
-					{{ range $ingredient := .Params.ingredients }}
-						<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
-					{{ end }}
-				</ul>
-			{{ else }}
-				{{ range $subcomponent := .Params.ingredients }}
-					{{ range $name,$ingredients := $subcomponent }}
-						{{ $ingredients_is_array := "no" }}
-						{{ if eq (printf "%T" $ingredients) "[]interface {}" }} {{ $ingredients_is_array = "yes" }} {{ end }}
-						{{ if eq $ingredients_is_array "no" }}
-							{{ if hasPrefix $ingredients "ainsley:" }}
-								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $ingredients) }}
-								<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
-							{{ end }}
-						{{ else }}
-							<p class="title is-6">{{ title $name }}</p>
-							<ul itemprop="ingredients">
-								{{ range $ingredient := $ingredients }}
-									<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
-								{{ end }}
-							</ul>
+		<!-- add the recipe -->
+		<div class="content" style="margin-top: 2em; margin-bottom: 0em">
+			<!-- if there are ingredients, list them -->
+			{{ if .Params.ingredients }}
+				<p class="title is-4">Ingredients</p>
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.ingredients) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+
+				{{ if eq $has_subcomponents "no" }}
+					<ul itemprop="ingredients">
+						{{ range $ingredient := .Params.ingredients }}
+							<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
 						{{ end }}
-					{{ end }}
-				{{ end}}
+					</ul>
+				{{ else }}
+					{{ range $subcomponent := .Params.ingredients }}
+						{{ range $name,$ingredients := $subcomponent }}
+							{{ $ingredients_is_array := "no" }}
+							{{ if eq (printf "%T" $ingredients) "[]interface {}" }} {{ $ingredients_is_array = "yes" }} {{ end }}
+							{{ if eq $ingredients_is_array "no" }}
+								{{ if hasPrefix $ingredients "ainsley:" }}
+									{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $ingredients) }}
+									<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
+								{{ end }}
+							{{ else }}
+								<p class="title is-6">{{ title $name }}</p>
+								<ul itemprop="ingredients">
+									{{ range $ingredient := $ingredients }}
+										<li itemprop="recipeIngredient">{{ markdownify $ingredient }}</li>
+									{{ end }}
+								</ul>
+							{{ end }}
+						{{ end }}
+					{{ end}}
+				{{ end }}
 			{{ end }}
 
-			<p class="title is-4">Directions</p>
-			{{ $has_subcomponents := "no" }}
-			{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
-			{{ if eq $has_subcomponents "no" }}
-				<ul itemprop="directions">
-					{{ range $direction := .Params.directions }}
-						<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify  $direction }}</li>
-					{{ end }}
-				</ul>
-			{{ else }}
-				{{ range $subcomponent := .Params.directions }}
-					{{ range $name,$directions := $subcomponent }}
-						{{ $directions_is_array := "no" }}
-						{{ if eq (printf "%T" $directions) "[]interface {}" }} {{ $directions_is_array = "yes" }} {{ end }}
-						{{ if eq $directions_is_array "no" }}
-							{{ if hasPrefix $directions "ainsley:" }}
-								{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $directions) }}
-								<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
-							{{ end }}
-						{{ else }}
-							<p class="title is-6">{{ title $name }}</p>
-							<ul itemprop="directions">
-								{{ range $direction := $directions }}
-									<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+			<!-- if there are directions, show them -->
+			{{ if .Params.directions }}
+				<p class="title is-4">Directions</p>
+				{{ $has_subcomponents := "no" }}
+				{{ if eq (printf "%T" .Params.directions) "[]interface {}" }} {{ $has_subcomponents = "yes" }} {{ end }}
+				{{ if eq $has_subcomponents "no" }}
+					<ul itemprop="directions">
+						{{ range $direction := .Params.directions }}
+							<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+						{{ end }}
+					</ul>
+				{{ else }}
+					{{ range $subcomponent := .Params.directions }}
+						{{ range $name,$directions := $subcomponent }}
+							{{ $directions_is_array := "no" }}
+							{{ if eq (printf "%T" $directions) "[]interface {}" }} {{ $directions_is_array = "yes" }} {{ end }}
+							{{ if eq $directions_is_array "no" }}
+								{{ if hasPrefix $directions "ainsley:" }}
+									{{ $href := ref $page_context (strings.TrimPrefix "ainsley:" $directions) }}
+									<p><a class="title is-6" href="{{ $href }}"><span>{{ title $name }}</span></a></p>
 								{{ end }}
-							</ul>
+							{{ else }}
+								<p class="title is-6">{{ title $name }}</p>
+								<ul itemprop="directions">
+									{{ range $direction := $directions }}
+										<li itemprop="recipeDirection" onclick="this.classList.toggle('strike');">{{ markdownify $direction }}</li>
+									{{ end }}
+								</ul>
+							{{ end }}
 						{{ end }}
 					{{ end }}
 				{{ end }}
