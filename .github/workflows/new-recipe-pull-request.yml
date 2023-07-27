@@ -1,0 +1,219 @@
+name: Submit new recipe as pull request
+
+on:
+  issues:
+    types:
+      - opened
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_ACTOR: ${{ github.actor }}
+  GITHUB_REPO: ${{ github.repository }}
+  HUGO_CONTENT_DIR: content
+  HUGO_CONTENT_SUBDIR: recipes
+  HUGO_RECIPES_CONTENT: content/recipes
+
+jobs:
+  parse-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Parse issue body
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/github-example.yaml
+
+      - name: Write recipe data
+        env:
+          JSON_STRING: ${{ steps.issue-parser.outputs.jsonString }}
+        run: |
+          mkdir --parents artifact
+          cat <<- JSON >> artifact/recipe.json
+          ${JSON_STRING}
+          JSON
+
+      - name: Assign variables to environment
+        env:
+          ISSUE_URL: ${{ github.event.issue.url }}
+          RECIPE_THUMBNAIL: ${{ steps.issue-parser.outputs.issueparser_thumbnail }}
+          RECIPE_TITLE: ${{ steps.issue-parser.outputs.issueparser_title }}
+        run: |
+          SLUG=${RECIPE_TITLE//_/} # first, strip underscores
+          SLUG=${SLUG// /-} # next, replace spaces with underscores
+          SLUG=${SLUG//[^a-zA-Z0-9_-]/} # now, clean out anything that's not alphanumeric or an underscore
+          SLUG=`echo -n $SLUG | tr A-Z a-z` # finally, lowercase with TR
+
+          ISSUE_NUMBER=`basename ${ISSUE_URL}`
+          BRANCH_NAME=${ISSUE_NUMBER}-${SLUG}
+
+          RECIPE_THUMBNAIL=${RECIPE_THUMBNAIL//\!\[THUMB\](/}
+          RECIPE_THUMBNAIL=${RECIPE_THUMBNAIL//\)/}
+
+          cat <<- ENVIRONMENT >> artifact/environment.txt
+          SLUG=${SLUG}
+          BRANCH_NAME=${BRANCH_NAME}
+          ISSUE_NUMBER=${ISSUE_NUMBER}
+          RECIPE_TITLE=${RECIPE_TITLE}
+          RECIPE_THUMBNAIL=${RECIPE_THUMBNAIL}
+          ENVIRONMENT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          retention-days: 1
+          name: environment-artifact
+          path: artifact/
+
+  update-github-issue:
+    runs-on: ubuntu-latest
+    needs:
+      - parse-issue
+    permissions: write-all
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: environment-artifact
+
+      - name: Update environment
+        run: |
+          cat environment.txt >> ${GITHUB_ENV}
+
+      - name: Assign creator to submission
+        run: |
+          JSON=`printf '{"assignees":["%s"]}' ${{ env.GITHUB_ACTOR }}`
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ env.GITHUB_REPO }}/issues/${{ env.ISSUE_NUMBER }}/assignees \
+            -d "${JSON}"
+
+      - name: Rename issue using recipe title
+        run: |
+          JSON=`printf '{"title":"Add %s", "labels":["submitted"]}' "${{ env.RECIPE_TITLE }}"`
+          echo ${JSON}
+          curl -L \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ env.GITHUB_REPO }}/issues/${{ env.ISSUE_NUMBER }} \
+            -d "${JSON}"
+
+  make-recipe:
+    runs-on: ubuntu-latest
+    needs:
+      - parse-issue
+    env:
+      HUGO_VERSION: 0.113.0
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: environment-artifact
+
+      - name: Update environment
+        run: |
+          cat environment.txt >> ${GITHUB_ENV} \
+          && rm $_ \
+          && mkdir --parents data \
+          && mv recipe.json data
+
+      - name: Create new recipe
+        run: |
+          rm --force --recursive content/* \
+          && hugo new --kind recipe ${{ env.HUGO_CONTENT_SUBDIR }}/${{ env.SLUG }}/index.md
+
+      - name: Add missing thumbnail
+        if: ${{ env.RECIPE_THUMBNAIL }} !~ "^https://github.com/${{ env.GITHUB_REPO }}/assets/"
+        run: |
+          THUMBNAIL=`ls static/img/thumbnail-* | sort --random-sort | head -n 1`
+          EXTENSION=${THUMBNAIL##*.}
+          cp ${THUMBNAIL} ${{ env.HUGO_RECIPES_CONTENT }}/${{ env.SLUG }}/thumbnail.${EXTENSION}
+
+      # - name: YAML linting
+      #   uses: ibiqlik/action-yamllint@v3
+      #   id: linter
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          retention-days: 1
+          name: recipe-artifact
+          path: ${{ env.HUGO_RECIPES_CONTENT }}
+
+  # convert-thumbnail:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - parse-issue
+  #   steps:
+  #     - name: Download artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: environment-artifact
+  #     - name: Update environment
+  #       run: |
+  #         cat environment.txt >> ${GITHUB_ENV} && rm $_ recipe.json
+
+  commit-and-submit-pull-request:
+    runs-on: ubuntu-latest
+    needs: 
+      - parse-issue
+      - make-recipe
+      # - convert-thumbnail
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+
+      - name: Update environment
+        run: |
+          cat environment-artifact/environment.txt >> ${GITHUB_ENV} \
+          && rm --recursive environment-artifact
+
+      - run: ls --recursive
+
+      - name: Move new recipe into content directory
+        run: |
+          mkdir --parents ${{ env.HUGO_RECIPES_CONTENT }} \
+          && mv --no-clobber recipe-artifact/${{ env.SLUG }} ${{ env.HUGO_RECIPES_CONTENT }} \
+          && rm --recursive recipe-artifact
+
+      - run: ls --recursive
+
+      - name: Commit new recipe
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: ${{ env.HUGO_RECIPES_CONTENT }}/${{ env.SLUG }}
+          author_name: ${{ env.GITHUB_ACTOR }}
+          author_email: e.mail@domain.com
+          new_branch: ${{ env.BRANCH_NAME }}
+          message: "committed ${{ env.RECIPE_TITLE }} to ${{ env.BRANCH_NAME }}"
+
+      - name: Create pull request
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+          --assignee ${{ env.GITHUB_ACTOR }} \
+          --reviewer ChristopherBarrington \
+          --base main \
+          --head ${{ env.BRANCH_NAME }} \
+          --title "Merge ${{ env.BRANCH_NAME }} into main" \
+          --body "Add ${{ env.RECIPE_TITLE }}. Closes #${{ env.ISSUE_NUMBER }}"
