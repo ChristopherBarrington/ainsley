@@ -6,6 +6,7 @@ title = "The Marlington Recipe Book"
 [params]
   author = "Christopher Barrington"
   description = "Recipes collected by The Marlingtons"
+  github = "ChristopherBarrington/ainsley"
 
 [outputs]
   home = ["HTML","RSS", "JSON", "SearchIndex"]
