@@ -10,10 +10,6 @@ a.tag, .tag.youtube, .tag.icon-text {
 	vertical-align: bottom;
 }
 
-.tag.youtube {
-    background-color: transparent;
-}
-
 /* recipe styling */
 
 .strike {
