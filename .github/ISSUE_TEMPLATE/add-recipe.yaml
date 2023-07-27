@@ -1,0 +1,116 @@
+name: Add recipe 🥘
+description: Submit a new recipe to AiNSLEY
+title: Submit a new recipe to AiNSLEY
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Recipe title
+      description: A short title for the recipe. The case will not be changed or modified when rendered.
+      placeholder: Red Lentil and Harissa Soup
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Recipe summary
+      description: A very short summary of the recipe. This is shown in the recipe card and page under the title. No full stop unless it is multisentence, which it shouldn't be.
+      placeholder: It packs a punch of flavour and warms the cockles on a cold day
+    validations:
+      required: false
+
+  - type: textarea
+    id: thumbnail
+    attributes:
+      label: Thumbnail
+      description: Attach the recipe thumbnail to this recipe by drag and drop. It should be a small (400px) jpeg or png.
+      placeholder: Drop the thumbnail file here
+    validations:
+      required: false
+
+  - type: input
+    id: linkout
+    attributes:
+      label: Website link
+      description: Link to a website or YouTube video, for example.
+      placeholder: https://youtu.be/fdixfqz1va8
+    validations:
+      required: false
+
+  - type: textarea
+    id: tags
+    attributes:
+      label: Tags
+      description: A new-line separated markdown list of plain text tags that describe the recipe. include a recipe book or author here - for example `hairy bikers`. Include `favourite` if it is one!
+      placeholder: |
+        - low calorie
+        - soup
+        - hairy bikers
+    validations:
+      required: false
+
+  - type: input
+    id: servings
+    attributes:
+      label: Number of servings
+      description: How many normal servings does this recipe make?
+      placeholder: "6"
+    validations:
+      required: false
+
+  - type: input
+    id: time
+    attributes:
+      label: Overall time to prepare the recipe
+      description: Time taken using "d", h" and "m".
+      placeholder: 1h 30m
+    validations:
+      required: true
+
+  - type: textarea
+    id: ingredients
+    attributes:
+      label: Ingredients
+      description: New-line separated markdown list of ingredients. Recipe subcomponents can be listed under sub-sections, if applicable. Otherwise just a list of ingredients.
+      placeholder: |
+        - gremolata:
+          - Zest of one lemon
+          - One finely chopped garlic clove
+          - Finely chopped corriander leaves
+        - lentil soup:
+          - 1 large onion, finely chopped
+          - 2 garlic cloves, finely chopped
+          - 2 tbsp finely chopped coriander stems
+          - harissa paste (whole jar)
+          - 200g red lentils, rinsed
+          - 800ml vegetable stock
+          - 400g can of tomatoes
+          - squeeze of lemon (optional)
+          - sea salt and black pepper
+    validations:
+      required: true
+
+  - type: textarea
+    id: directions
+    attributes:
+      label: Directions
+      description: With the same format as ingredients, write a markdown list the directions.
+      placeholder: |
+        - lentil soup:
+          - Heat the oil in a large saucepan. Add the onion and cook it over a gentle heat until softened. Add the garlic and cook for another minute, then stir in the coriander stems and the harissa paste.
+          - Add the lentils and stir until they are coated with the paste, then pour over the stock and season with salt and pepper. Bring the stock to the boil, then turn the heat down and simmer for about 10 minutes. Add the tomatoes and simmer for another 10 minutes. Stir and check the consistency of the soup – add a splash more water if it seems too thick. Taste and adjust the seasoning, adding a squeeze of lemon juice if you think the soup needs it.
+          - Blend the soup if you want it smooth – the lentils will have broken down enough to thicken it, but there will still be some texture from the onions and tomatoes.
+        - gremolata:
+          - Finely chop all ingredients together until well combined
+          - Serve spooned over top of soup
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Notes
+        
+        * A markdown list is separated by newlines and indented at each level with two spaces.
+        * Only subcomponents should be on different levels
