@@ -21,6 +21,20 @@ import * as params from '@params';
 		tokenize: 'forward'
 	});
 
+	// listen for clicks outside the search query form
+	document.onclick = e => {
+		const recipe_list = document.getElementsByClassName('container recipe-list')[0]
+		const recipe_list_is_blurred = recipe_list.classList.contains('blurred')
+		if (e.target.id !== "query" && recipe_list_is_blurred)
+		  	document.forms[0].reset();		
+	}
+
+	// if clicked outside the search form, reset the form and delete the results
+	function hideResults() {
+		document.getElementsByClassName('container recipe-list')[0].classList.toggle('blurred');
+		document.getElementById('search-results').textContent = '';
+	}
+
 	function showResults(items) {
 		document.getElementsByClassName('container recipe-list')[0].classList.toggle('blurred');
 
@@ -83,6 +97,9 @@ import * as params from '@params';
 		searchform.addEventListener('input', function () {
 			doSearch();
 		});
+		searchform.addEventListener('reset', function () {
+			hideResults();
+		})
 		document.querySelector('.search-input').classList.remove('hidden');
 		document.querySelector('.search-text').focus();
 	}
