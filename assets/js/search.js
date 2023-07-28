@@ -38,7 +38,7 @@ import * as params from '@params';
 	function showResults(items) {
 		document.getElementById('recipe-list').classList.toggle('blurred');
 		document.getElementById('taxonomies').classList.toggle('blurred');
-
+		document.getElementById('ainsley-badge').classList.toggle('blurred');
 		const template = document.querySelector('template').content;
 		const fragment = document.createDocumentFragment();
 
