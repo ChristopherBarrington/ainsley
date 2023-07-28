@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="section">
-	<div class="container">
+	<div id='search' class="container search">
 
 		<!--  -->
 
@@ -17,7 +17,7 @@
 					</form>
 				</div>
 
-				<div class="search-results has-background-white"></div>
+				<div id="search-results" class="search-results"></div>
 				<template>
 					<article class="search-result list-view">
 						<a class="mb--xxs is-content has-text-dark" href="#">TEXT HERE</a>
@@ -25,9 +25,10 @@
 				</template>
 			</div>
 		</div>
-
+	</div>
 		<!--  -->
 
+	<div class="container recipe-list">
 		<div class="taxonomies columns is-centered">
 			<div class="column">
 				{{ range .Site.Taxonomies.tags }}
