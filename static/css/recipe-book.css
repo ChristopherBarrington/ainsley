@@ -107,4 +107,9 @@ a.title.is-5 {
 .search-result .image {
 }
 
+/* general styling */
+
+.blurred {
+    filter: blur(3px);
+    transition: all 0.25s linear;
 }
