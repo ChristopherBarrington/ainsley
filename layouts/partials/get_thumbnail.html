@@ -2,7 +2,7 @@
 
 {{ $page_dir := $context.File.Dir }}
 
-{{ $thumbnail := "missing.jpg" }}
+{{ $thumbnail := "missing.jpeg" }}
 {{ $recipe_files := path.Join "content" $page_dir | readDir }}
 	{{ range $recipe_file := $recipe_files }}
 		{{ if eq (path.BaseName $recipe_file.Name) "thumbnail" }}
