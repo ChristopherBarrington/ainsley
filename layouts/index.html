@@ -1,10 +1,7 @@
 {{ define "main" }}
 <section class="section">
-	<div class="container">
-
-		<!--  -->
-
-		<div class="columns is-centered">
+	<div id='search' class="container search">
+		<div class="columns is-centered" style="margin-top: -2em; margin-bottom: 0em">
 			<div class="column">
 				<div class="search-input">
 					<form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
@@ -17,7 +14,7 @@
 					</form>
 				</div>
 
-				<div class="search-results has-background-white"></div>
+				<div id="search-results" class="search-results"></div>
 				<template>
 					<article class="search-result list-view">
 						<a class="mb--xxs is-content has-text-dark" href="#">TEXT HERE</a>
@@ -25,9 +22,11 @@
 				</template>
 			</div>
 		</div>
+	</div>
+	
+	<!--  -->
 
-		<!--  -->
-
+	<div id='taxonomies' class="container" style="margin-top: 1em; margin-bottom: 0em">
 		<div class="taxonomies columns is-centered">
 			<div class="column">
 				{{ range .Site.Taxonomies.tags }}
@@ -35,10 +34,12 @@
 				{{ end }}
 			</div>
 		</div>
+	</div>
 
-		<!--  -->
+	<!--  -->
 
-		<div class="columns is-centered">
+	<div id='recipe-list' class="container recipe-list" style="margin-top: 1em; margin-bottom: 0em">
+		<div class="columns is-centered" style="margin-top: 0em; margin-bottom: 0em">
 			<div class="column">
 				{{ range $index, $page := .Site.RegularPages }}
 					{{ if eq (mod $index 4) 0 }}{{ partial "box.html" $page }}{{ end }}
@@ -60,12 +61,10 @@
 				{{ end }}
 			</div>
 		</div>
-
-		<!--  -->
 	</div>
 
 	<!-- add button to go to ainsley on github -->
-	<div class="content has-text-right" style="margin-top: 1em; margin-bottom: 0em">
+	<div id='ainsley-badge' class="content has-text-right" style="margin-top: 1em; margin-bottom: 0em">
 		<a class="tag has-background-info-light is-size-7" href="http://github.com/{{ .Site.Params.github }}" target="_blank">
 			<span class="icon"><i class="fab fa-github"></i></span>
 			<span>AiNSLEY on GitHub</span>
