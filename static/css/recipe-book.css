@@ -63,8 +63,8 @@ a.title.is-5 {
 
 /* recipe search results */
 
-.search, .search-results {
-    z-index: 9999;
+.search-results {
+    z-index: 6;
 }
 
 .search-results {
