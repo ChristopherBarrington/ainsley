@@ -26,7 +26,7 @@
 	
 	<!--  -->
 
-	<div class="container" style="margin-top: 1em; margin-bottom: 0em">
+	<div id='taxonomies' class="container" style="margin-top: 1em; margin-bottom: 0em">
 		<div class="taxonomies columns is-centered">
 			<div class="column">
 				{{ range .Site.Taxonomies.tags }}
@@ -38,7 +38,7 @@
 
 	<!--  -->
 
-	<div class="container recipe-list" style="margin-top: 1em; margin-bottom: 0em">
+	<div id='recipe-list' class="container recipe-list" style="margin-top: 1em; margin-bottom: 0em">
 		<div class="columns is-centered" style="margin-top: 0em; margin-bottom: 0em">
 			<div class="column">
 				{{ range $index, $page := .Site.RegularPages }}
