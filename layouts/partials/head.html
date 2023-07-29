@@ -2,6 +2,7 @@
 {{ $search_opts := dict "params" (dict "searchLimit" (site.Params.searchLimit | default 10)) -}}
 {{ $search := resources.Get "js/search.js" | js.Build $search_opts -}}
 {{ $youtube := resources.Get "js/youtube_modal.js" | js.Build -}}
+{{ $bulma := resources.Get "js/bulma.js" | js.Build -}}
 
 <head>
 	<meta charset="utf-8">
@@ -19,4 +20,5 @@
 	<script defer src="{{ $flexsearch.RelPermalink }}"></script>
 	<script defer src="{{ $search.RelPermalink }}"></script>
 	<script defer src="{{ $youtube.RelPermalink }}"></script>
+	<script defer src="{{ $bulma.RelPermalink }}"></script>
 </head>
