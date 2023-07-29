@@ -2,6 +2,7 @@
 {{ $search_opts := dict "params" (dict "searchLimit" (site.Params.searchLimit | default 10)) -}}
 {{ $search := resources.Get "js/search.js" | js.Build $search_opts -}}
 {{ $youtube := resources.Get "js/youtube_modal.js" | js.Build -}}
+{{ $bulma := resources.Get "js/bulma.js" | js.Build -}}
 
 <head>
 	<meta charset="utf-8">
@@ -12,11 +13,12 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
+	<!-- <link rel="manifest" href="/site.webmanifest"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
 	<link rel="stylesheet" href="/css/recipe-book.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	<script defer src="{{ $flexsearch.RelPermalink }}"></script>
 	<script defer src="{{ $search.RelPermalink }}"></script>
 	<script defer src="{{ $youtube.RelPermalink }}"></script>
+	<script defer src="{{ $bulma.RelPermalink }}"></script>
 </head>
