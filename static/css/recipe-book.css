@@ -109,7 +109,7 @@ a.title.is-5 {
 
 /* general styling */
 
-.blurred {
+.blurred-ignore {
     filter: blur(3px);
     transition: all 0.25s linear;
 }
