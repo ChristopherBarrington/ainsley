@@ -17,8 +17,10 @@ jobs:
   check-labels:
     name: Check issue labels
     runs-on: ubuntu-latest
-    if: |
-      contains(github.event.issue.labels.*.name, 'recipe')
+    steps:
+      - name: Check for recipe label
+        if: |
+          contains(github.event.issue.labels.*.name, 'recipe')
 
   parse-issue:
     runs-on: ubuntu-latest
