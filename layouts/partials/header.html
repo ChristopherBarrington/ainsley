@@ -2,11 +2,11 @@
 	<div class="navbar-brand">
 		{{ if eq $.Site.Title $.Page.Title }}
 			<div class="navbar-item">
-				{{ $.Site.Title }}
+				<a class="has-text-light" href="http://github.com/{{ .Site.Params.github }}/issues/new?template=add-recipe.yaml&title=Submit+a+new+recipe+to+AiNSLEY" target="_blank">{{ $.Site.Title }}</a>
 			</div>
 		{{ else }}
-			<a class="navbar-item" href="/"><span class="icon"><i class="fas fa-home"></i></span>      </a>
-			<div class="navbar-item">{{ $.Page.Title }}</div>
+			<a class="navbar-item has-text-light" href="/"><span class="icon"><i class="fas fa-home"></i></span></a>
+			<div class="navbar-item has-text-light">{{ $.Page.Title }}</div>
 		{{ end }}
 	</div>
 </nav>
