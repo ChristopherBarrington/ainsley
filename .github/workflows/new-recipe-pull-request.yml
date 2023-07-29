@@ -19,10 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for recipe label
-        if: |
-          contains(github.event.issue.labels.*.name, 'recipe')
+        if: ${{ !contains(github.event.issue.labels.*.name, 'recipe') }}
+        run: |
+          gh run cancel ${{ github.run_id }}
+          gh run watch ${{ github.run_id }}
 
   parse-issue:
+    name: Parse recipe submission
     runs-on: ubuntu-latest
     needs:
       - check-labels
@@ -78,6 +81,7 @@ jobs:
           path: artifact/
 
   update-github-issue:
+    name: Update issue on GitHub
     runs-on: ubuntu-latest
     needs:
       - parse-issue
@@ -116,6 +120,7 @@ jobs:
             -d "${JSON}"
 
   make-recipe:
+    name: Create recipe
     runs-on: ubuntu-latest
     needs:
       - parse-issue
@@ -166,6 +171,7 @@ jobs:
           path: ${{ env.HUGO_RECIPES_CONTENT }}
 
   # convert-thumbnail:
+  #   name: Prepare thumbnail
   #   runs-on: ubuntu-latest
   #   needs:
   #     - parse-issue
@@ -179,6 +185,7 @@ jobs:
   #         cat environment.txt >> ${GITHUB_ENV} && rm $_ recipe.json
 
   commit-and-submit-pull-request:
+    name: Commit changes and submit pull request
     runs-on: ubuntu-latest
     needs: 
       - parse-issue
@@ -225,5 +232,6 @@ jobs:
           --reviewer ChristopherBarrington \
           --base main \
           --head ${{ env.BRANCH_NAME }} \
+          --label "recipe" \
           --title "Merge ${{ env.BRANCH_NAME }} into main" \
           --body "Add ${{ env.RECIPE_TITLE }}. Closes #${{ env.ISSUE_NUMBER }}"
