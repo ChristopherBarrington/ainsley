@@ -1,8 +1,7 @@
 name: Add recipe 🥘
 description: Submit a new recipe to AiNSLEY
 title: Submit a new recipe to AiNSLEY
-labels:
-  - recipe
+labels: ["recipe"]
 
 body:
   - type: input
