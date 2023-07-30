@@ -1,6 +1,6 @@
 baseURL = "https://christopherbarrington.github.io/ainsley/"
 languageCode = "en-gb"
-title = "The Marlington Recipe Book"
+title = "The Marlington Recipe Book 2"
 # theme = "recipe-book"
 
 [params]
