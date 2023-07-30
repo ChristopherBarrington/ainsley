@@ -151,6 +151,7 @@ jobs:
       - name: Create new recipe
         run: |
           rm --force --recursive content/* \
+          && mkdir content \
           && hugo new --kind recipe ${{ env.HUGO_CONTENT_SUBDIR }}/${{ env.SLUG }}/index.md
 
       - name: Add missing thumbnail
