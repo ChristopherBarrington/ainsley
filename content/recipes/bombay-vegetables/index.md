@@ -25,7 +25,7 @@ ingredients:
 - 1 tsp cumin seeds
 
 directions:
-- Chop the vegetables and add to a roasting dish
+- Chop the vegetables and add root vegetables to a roasting dish
 - Add olive oil and spices and stir to coat
-- Roast at 200C for 40 mins, stirring as needed
+- Roast at 200C for 40 mins, stirring as needed and add the other veg at the right time
 ---
