@@ -110,7 +110,7 @@ jobs:
 
       - name: Rename issue using recipe title
         run: |
-          JSON=`printf '{"title":"Add %s", "labels":["submitted"]}' "${{ env.RECIPE_TITLE }}"`
+          JSON=`printf '{"title":"Add %s"}' "${{ env.RECIPE_TITLE }}"`
           echo ${JSON}
           curl -L \
             -X PATCH \
