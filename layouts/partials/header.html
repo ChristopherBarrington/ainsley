@@ -2,7 +2,7 @@
 	<div class="navbar-brand">
 		{{ if eq $.Site.Title $.Page.Title }}
 			<div class="navbar-item">
-				<a class="has-text-light" href="http://github.com/{{ .Site.Params.github }}/issues/new?template=add-recipe.yaml&title=Submit+a+new+recipe+to+AiNSLEY" target="_blank">{{ $.Site.Title }}</a>
+				<a class="has-text-light" href="http://github.com/{{ .Site.Params.github }}/issues/new?template=add-recipe.yaml&title=Submit+a+new+recipe+to+AiNSLEY&labels=recipe" target="_blank">{{ $.Site.Title }}</a>
 			</div>
 		{{ else }}
 			<a class="navbar-item has-text-light" href="/"><span class="icon"><i class="fas fa-home"></i></span></a>
