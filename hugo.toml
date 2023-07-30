@@ -1,4 +1,4 @@
-baseURL = "https://christopherbarrington.github.io/ainsley"
+baseURL = "https://christopherbarrington.github.io/ainsley/"
 languageCode = "en-gb"
 title = "The Marlington Recipe Book"
 # theme = "recipe-book"
