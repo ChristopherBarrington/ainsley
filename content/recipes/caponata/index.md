@@ -2,7 +2,7 @@
 title: Caponata
 summary: A punchy vegetable dish that can be eaten on its own but it's also great with pasta.
 
-linkout: 
+linkout: https://www.hairybikers.com/recipes/view/courgette-caponata-pasta
 
 tags:
 - low calorie
@@ -30,7 +30,7 @@ ingredients:
 
 directions:
 - Heat the olive oil in a large saucepan and add the onions, peppers and carrots. Stir to coat them in the oil.
--  Put a lid on the pan and cook over a low heat for about 10 minutes until the vegetables are softened. 
+- Put a lid on the pan and cook over a low heat for about 10 minutes until the vegetables are softened. 
 - Turn up the heat and add the courgettes. Fry briskly for about 5 minutes, until everything starts to brown a little but the courgettes are still firm. 
 - Add the garlic, chilli flakes, lemon zest and cinnamon, then stir briefly. 
 - Pour the tomatoes into the pan and add the vinegar, honey, capers and olives. 
