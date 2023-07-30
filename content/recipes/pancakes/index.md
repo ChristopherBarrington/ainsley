@@ -18,5 +18,5 @@ ingredients:
 directions:
 - mix batter
 - cook batter
-- serve with lemon, honey, maple syrup, golden syrup, icing sugar, stroop, ice cream ...
+- serve with lemon, honey, maple syrup, golden syrup, sugar, icing sugar, stroop, ice cream ...
 ---
