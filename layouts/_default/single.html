@@ -154,10 +154,12 @@
 			{{ end }}
 		</div>
 	</article>
-	<div class="content has-text-right" style="margin-top: 1em; margin-bottom: 0em">
-		<a class="tag has-background-danger-light is-size-7" href="http://github.com/{{ .Site.Params.github }}/edit/main/content/{{ .Page.File }}" target="_blank">
+
+	<!-- add button to go to ainsley on github -->
+	<div id='ainsley-badge' class="content has-text-centered" style="margin-top: 1em; margin-bottom: 0em">
+		<a class="tag has-background-light is-size-7" href="http://github.com/{{ .Site.Params.github }}/edit/main/content/{{ .Page.File }}" target="_blank">
 			<span class="icon"><i class="fab fa-github"></i></span>
-			<span>Edit recipe on GitHub</span>
+			<span>Edit recipe</span>
 		</a>
 	</div>
 </div>
