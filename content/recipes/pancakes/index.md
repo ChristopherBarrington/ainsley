@@ -17,6 +17,6 @@ ingredients:
 
 directions:
 - mix batter
-- cook batter
+- fry batter in butter
 - serve with lemon, honey, maple syrup, golden syrup, sugar, icing sugar, stroop, ice cream ...
 ---
