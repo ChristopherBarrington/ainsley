@@ -5,7 +5,6 @@ summary: Simple homemade pesto that is packed with flavour and great with gnocch
 linkout: https://www.jamieoliver.com/recipes/pasta-recipes/gnocchi-alla-trapanese/
 
 tags:
-- pasta
 - favourite
 - jamie oliver
 
