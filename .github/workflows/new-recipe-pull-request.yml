@@ -203,18 +203,15 @@ jobs:
 
       - name: Update environment
         run: |
-          cat environment-artifact/environment.txt >> ${GITHUB_ENV} \
+          git pull \
+          && cat environment-artifact/environment.txt >> ${GITHUB_ENV} \
           && rm --recursive environment-artifact
-
-      - run: ls --recursive
 
       - name: Move new recipe into content directory
         run: |
           mkdir --parents ${{ env.HUGO_RECIPES_CONTENT }} \
           && mv --no-clobber recipe-artifact/${{ env.SLUG }} ${{ env.HUGO_RECIPES_CONTENT }} \
           && rm --recursive recipe-artifact
-
-      - run: ls --recursive
 
       - name: Commit new recipe
         uses: EndBug/add-and-commit@v9
