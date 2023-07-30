@@ -21,8 +21,8 @@ jobs:
       - name: Check for recipe label
         if: ${{ !contains(github.event.issue.labels.*.name, 'recipe') }}
         run: |
-          gh run cancel ${{ github.run_id }}
-          gh run watch ${{ github.run_id }}
+          gh run cancel --repo ChristopherBarrington/ainsley ${{ github.run_id }}
+          gh run watch --repo ChristopherBarrington/ainsley ${{ github.run_id }}
 
   parse-issue:
     name: Parse recipe submission
