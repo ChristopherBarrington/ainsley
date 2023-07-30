@@ -1,4 +1,5 @@
 baseURL = "https://christopherbarrington.github.io/ainsley/"
+canonifyurls = true
 languageCode = "en-gb"
 title = "The Marlington Recipe Book"
 # theme = "recipe-book"
