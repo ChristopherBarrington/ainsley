@@ -5,8 +5,8 @@ summary: A side of spicy veggies
 linkout: 
 
 tags:
-- Vegan
-- Indian
+- vegan
+- indian
 
 servings: 2
 time: 1h
