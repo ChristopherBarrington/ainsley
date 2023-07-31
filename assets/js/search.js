@@ -57,8 +57,8 @@ import * as params from '@params';
 						`<img ` +
 						`alt="Thumbnail" `  +
 						`class="thumbnail is-rounded" ` +
-						`src="` + item.permalink + `thumbnail.jpeg` + `" ` +
-						`onerror='this.onerror=null; this.src="/img/default-thumbnail.jpeg"'/>` +
+						`src="` + item.permalink.replace(/^\//, '') + `thumbnail.jpeg` + `" ` +
+						`onerror='this.onerror=null; this.src="img/default-thumbnail.jpeg"'/>` +
 					`</figure>` +
 					`<div>` +
 						`<div class='is-size-6 search-result-title' style="margin-left: 0.3em">` + item.title + `</div>` +
@@ -106,7 +106,7 @@ import * as params from '@params';
 	}
 
 	function buildIndex() {
-		fetch('/searchindex.json')
+		fetch('searchindex.json')
 			.then(function (response) {
 				return response.json();
 			})
