@@ -7,6 +7,7 @@ linkout: https://www.hairybikers.com/recipes/view/courgette-caponata-pasta
 tags:
 - low calorie
 - hairy bikers
+- favourite
 
 servings: 2
 time: 1h
