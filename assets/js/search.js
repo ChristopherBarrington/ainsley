@@ -16,7 +16,7 @@ import * as params from '@params';
 		document: {
 			id: 'id',
 			index: ['title', 'tags', 'content', 'date'],
-			store: ['title', 'summary', 'date', 'permalink']
+			store: ['title', 'summary', 'date', 'permalink', 'path']
 		},
 		tokenize: 'forward'
 	});
@@ -57,7 +57,7 @@ import * as params from '@params';
 						`<img ` +
 						`alt="Thumbnail" `  +
 						`class="thumbnail is-rounded" ` +
-						`src="` + item.permalink.replace(/^\//, '') + `thumbnail.jpeg` + `" ` +
+						`src="` + item.path + `/thumbnail.jpeg` + `" ` +
 						`onerror='this.onerror=null; this.src="img/default-thumbnail.jpeg"'/>` +
 					`</figure>` +
 					`<div>` +
@@ -67,7 +67,7 @@ import * as params from '@params';
 				`</div>`;
 
 			a.innerHTML = inner_html;
-			a.href = item.permalink;
+			a.href = item.permalink.replace(/^\//, '');
 			fragment.appendChild(result);
 		}
 		results.appendChild(fragment);
