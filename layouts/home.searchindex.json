@@ -4,9 +4,10 @@
         "id" $index
         "title" $element.Title
         "permalink" $element.RelPermalink
+        "path" (path.Dir $element.Path)
         "tags" (delimit ($element.Params.tags | default "") " ")
         "content" $element.Plain
         "summary" $element.Summary
         "date" ($element.Date.Format ($.Param "dateformat" | default "2 January, 2006"))) -}}
-{{- end -}}
+    {{- end -}}
 {{- $.Scratch.Get "searchindex" | jsonify -}}
