@@ -1,8 +1,8 @@
-{{ $flexsearch := resources.Get "libs/flexsearch.compact.js" -}}
+{{ $flexsearch := resources.Get "/libs/flexsearch.compact.js" -}}
 {{ $search_opts := dict "params" (dict "searchLimit" (site.Params.searchLimit | default 10)) -}}
-{{ $search := resources.Get "js/search.js" | js.Build $search_opts -}}
-{{ $youtube := resources.Get "js/youtube_modal.js" | js.Build -}}
-{{ $bulma := resources.Get "js/bulma.js" | js.Build -}}
+{{ $search := resources.Get "/js/search.js" | js.Build $search_opts -}}
+{{ $youtube := resources.Get "/js/youtube_modal.js" | js.Build -}}
+{{ $bulma := resources.Get "/js/bulma.js" | js.Build -}}
 
 <head>
 	<meta charset="utf-8">
