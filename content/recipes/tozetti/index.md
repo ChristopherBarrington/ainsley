@@ -1,5 +1,5 @@
 ---
-title: Tozetti
+title: Tozzetti
 summary: Tozzetti are very similar to cantucci, but are often made with a combination of almonds and hazelnuts
 
 linkout: https://www.italianfoodforever.com/2023/05/tozzetti-umbrian-almond-hazelnut-biscotti/
