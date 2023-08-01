@@ -14,7 +14,7 @@ ingredients:
 - 400g can chopped/diced tomatoes
 - hot water
 - 1 tbsp tomato puree (tomato paste)
-- 2 vegetable or chicken stock cubes (bouillon)
+- 2 vegetable stock cubes (or bouillon)
 - olive oil
 - 1 white onion, finely chopped
 - 4-6 cloves garlic, finely chopped (depends on their size, and how much you like garlic!)
