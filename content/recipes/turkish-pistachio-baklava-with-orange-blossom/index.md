@@ -40,3 +40,8 @@ directions:
 - Pour the syrup over the hot baklava. Once the baklava is cooked, remove it from oven and pour the orange blossom simple syrup all over the top, while the baklava is still hot.
 - Allow the pistachio baklava to rest for at least 2-3 hours before serving so the baklava can soak up all of the syrup. Garnish the squares with the remaining ground pistachios.
 ---
+
+* Thaw the phyllo overnight completely. It should not be frozen when ready to use. 
+* Keep a damp towel over the phyllo sheets as you work to keep them from drying. 
+* It's ok if the phyllo sheets crack or break, no one will notice after baking. 
+* There are about 20 sheets of phyllo per roll.
