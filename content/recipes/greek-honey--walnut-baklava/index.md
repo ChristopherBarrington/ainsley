@@ -7,6 +7,7 @@ linkout: https://www.thepurplepumpkinblog.co.uk/greek-baklava-recipe-with-honey-
 tags:
 - greek
 - sweets
+- new
 
 servings: 12
 time: 1h 30m
@@ -35,3 +36,7 @@ directions:
 - When the baklava has finished baking, remove it from the oven and while it is still piping hot, pour the syrup all over it. Sprinkle some finely chopped walnuts on top of each diamond for added garnish if desired.
 - Leave the dish of baklava to cool at room temperature for at least 4 – 6 hours before serving
 ---
+
+* Cover the filo pastry with a damp cloth when you are working, to prevent the sheets from dying out.
+* You can also make this recipe in a 9" x 13" baking dish and make 10 to 11 diagonal cuts
+* Alternatively, you can also make several layers of walnut filling and filo. Divide the filling into quarters/fourths and layer as follows: 10 filo ~ filling ~ 5 filo ~ filling ~ 5 filo ~ filling ~ 5 filo ~ filling ~ 10 filo, buttering in between the pastry layers.
