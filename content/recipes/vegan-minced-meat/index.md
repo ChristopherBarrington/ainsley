@@ -13,7 +13,7 @@ time: 15m
 
 ingredients:
 - 1 cup raw walnuts, soaked
-- 16 oz mushrooms of choice
+- 450g mushrooms of choice
 - 3 tbsp olive oil+ extra as needed
 - 2 tbsp gluten-free tamari or soy sauce
 - 1 tsp ground cumin
