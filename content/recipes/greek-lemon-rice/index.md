@@ -10,7 +10,7 @@ tags:
 - new
 
 servings: 6
-time: 35M
+time: 35m
 
 ingredients:
 - 2 tbsp olive oil
