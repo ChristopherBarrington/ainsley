@@ -28,3 +28,7 @@ directions:
 - Pour in stock and mix well. Bring to a boil, then reduce heat to medium low, cover, and cook for 20 minutes.
 _ Remove from heat, open the lid and fluff rice with a fork. Add in parsley, dill, lemon juice and lemon zest. Mix until well combined.
 ---
+
+- Swap white rice with brown rice for a nuttier flavor and added nutrition. Adjust cooking times as necessary.
+- Sprinkle in toasted pine nuts or slivered almonds at the end for crunch and nutty flavors.
+- Add some veggies. Think peas, carrots or bell peppers.
