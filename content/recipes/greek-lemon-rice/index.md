@@ -9,18 +9,18 @@ tags:
 - side
 - new
 
-servings: 
-time: 35
+servings: 6
+time: 35M
 
 ingredients:
-2 tbsp olive oil
-1 small onion, diced
-2 cloves garlic, finely chopped
-1.5 cups uncooked white rice
-3 cups vegetable broth
-2 tbsp fresh parsley, chopped
-1 tbsp fresh dill
-juice + zest of 1 lemon
+- 2 tbsp olive oil
+- 1 small onion, diced
+- 2 cloves garlic, finely chopped
+- 1.5 cups uncooked white rice
+- 3 cups vegetable broth
+- 2 tbsp fresh parsley, chopped
+- 1 tbsp fresh dill
+- juice + zest of 1 lemon
 
 directions:
 - In a medium pot, heat olive oil over medium heat. Add onion and sauté till it starts to become translucent. Add in garlic and cook for another minute.
