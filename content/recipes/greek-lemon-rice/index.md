@@ -26,7 +26,7 @@ directions:
 - In a medium pot, heat olive oil over medium heat. Add onion and sauté till it starts to become translucent. Add in garlic and cook for another minute.
 - Add rice and sauté for 5 minutes, stirring frequently.
 - Pour in stock and mix well. Bring to a boil, then reduce heat to medium low, cover, and cook for 20 minutes.
-_ Remove from heat, open the lid and fluff rice with a fork. Add in parsley, dill, lemon juice and lemon zest. Mix until well combined.
+- Remove from heat, open the lid and fluff rice with a fork. Add in parsley, dill, lemon juice and lemon zest. Mix until well combined.
 ---
 
 - Swap white rice with brown rice for a nuttier flavor and added nutrition. Adjust cooking times as necessary.
