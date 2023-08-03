@@ -42,7 +42,7 @@ directions:
   - Drain the tofu, but do not press it to remove excess water. Use your hands to crumble it into bite-sized pieces and add it to the pan. Use a spatula to stir the ingredients until they are evenly distributed.
   - Sprinkle in the nutritional yeast, paprika, turmeric, salt, and black pepper. Gently stir the tofu to evenly coat it with the spices. The turmeric will turn the tofu bright yellow.
   - Cook the tofu for 3 to 7 minutes, stirring every 1 to 2 minutes until the water from the tofu has evaporated. Taste and season with more salt if needed. Remove the pan from the heat and set it aside.
-- Aioli:
+- Aioli
   - In a small bowl, combine the vegan mayonnaise, lime juice, chili powder, garlic powder, and 1 tablespoon water until smooth. If it's still thick, add 1 more tablespoon of water to thin it out a bit more.
 - Assemble the bowls
   - Divide the greens, rice, onion, tomatoes, beans, avocado, and tofu scramble between two bowls. Drizzle the aioli on top and enjoy!
