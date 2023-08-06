@@ -7,8 +7,7 @@ tags:
   - waitrose
 
 servings: 2
-time: 40
-
+time: 40m
 
 ingredients:
   - 165g self raising flour
