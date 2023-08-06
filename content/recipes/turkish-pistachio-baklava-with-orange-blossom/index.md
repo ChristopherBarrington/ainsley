@@ -5,7 +5,7 @@ summary: Baklava soaked in an orange blossom syrup that is perfectly sweet and s
 linkout: https://littleferrarokitchen.com/pistachio-baklava-orange-blossom-simple-syrup/
 
 tags:
-- turkish
+- middle eastern
 - sweets
 - new
 
