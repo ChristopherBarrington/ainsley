@@ -5,8 +5,8 @@ summary: {{ .Site.Data.recipe.summary }}
 linkout: {{ .Site.Data.recipe.linkout }}
 
 tags:
-{{ range $existing_tag := (split .Site.Data.recipe.new_tags "\n" | union .Site.Data.recipe.existing_tags | uniq) -}}
-{{ with $existing_tag }}- {{ lower $existing_tag }}{{ end }}
+{{ range $tag := (split .Site.Data.recipe.new_tags "\n" | union .Site.Data.recipe.existing_tags | uniq) -}}
+{{ with $tag }}- {{ lower . }}{{ end }}
 {{ end -}}
 
 servings: {{ .Site.Data.recipe.servings }}
