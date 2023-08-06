@@ -5,7 +5,6 @@ linkout: http://recipe-finder.com/recipe/12903808906242591088
 
 tags:
   - baking
-  - party
   - favourite
 
 servings: 12
