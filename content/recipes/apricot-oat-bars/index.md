@@ -20,7 +20,7 @@ ingredients:
 - 2 cups all-purpose flour
 - 2 teaspoons baking powder
 - 2 cups regular rolled oats
-- 3/4 cup chopped walnuts (see notes above)
+- 3/4 cup chopped walnuts or sliced almonds
 - 425g low sugar apricot jam
 
 directions:
