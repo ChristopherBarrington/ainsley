@@ -8,7 +8,7 @@ tags:
 - mrs b
 
 servings: 8
-time: 20
+time: 20m
 
 ingredients:
 - 2 eggs
