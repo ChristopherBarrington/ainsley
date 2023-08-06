@@ -40,15 +40,28 @@ body:
     validations:
       required: false
 
-  - type: textarea
-    id: tags
+  - type: checkboxes
+    id: existing_tags
     attributes:
-      label: Tags
-      description: A new-line separated markdown list of plain text tags that describe the recipe. include a recipe book or author here - for example `hairy bikers`. Include `favourite` if it is one!
+      label: Existing tags
+      description: Any existing tags to associate with a recipe. Include `favourite` if it is one!
+      options:
+        - label: favourite
+        - label: new
+        - label: indian
+        - label: italian
+        - label: quick
+        - label: side
+
+  - type: textarea
+    id: new_tags
+    attributes:
+      label: New tags
+      description: A new-line separated list of plain text tags that describe the recipe. include a recipe book or author here - for example `hairy bikers`.
       placeholder: |
-        - low calorie
-        - soup
-        - hairy bikers
+        low calorie
+        soup
+        hairy bikers
     validations:
       required: false
 
