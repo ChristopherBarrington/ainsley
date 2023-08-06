@@ -9,23 +9,22 @@ tags:
 - italian
 - sweets
 
-
 servings: 30
 time: 40m
 
 ingredients:
-1/2 cup unsalted butter, softened
-1 cup sugar
-2 large eggs at room temperature
-1 teaspoon vanilla extract
-2 1/2 cups all-purpose flour
-2 teaspoons baking powder
-1 1/2 tablespoon ground cinnamon
-2 teaspoons ground ginger
-pinch of ground cloves
-pinch of salt
-1/2 cup shelled chopped unsalted pistachios
-1/3 cup cinnamon chips (optional)
+- 1/2 cup unsalted butter, softened
+- 1 cup sugar
+- 2 large eggs at room temperature
+- 1 teaspoon vanilla extract
+- 2 1/2 cups all-purpose flour
+- 2 teaspoons baking powder
+- 1 1/2 tablespoon ground cinnamon
+- 2 teaspoons ground ginger
+- pinch of ground cloves
+- pinch of salt
+- 1/2 cup shelled chopped unsalted pistachios
+- 1/3 cup cinnamon chips (optional)
 
 directions:
 - Preheat oven to 325 degrees F. Line a baking sheet with parchment paper.
