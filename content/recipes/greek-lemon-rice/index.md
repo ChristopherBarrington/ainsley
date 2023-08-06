@@ -6,7 +6,7 @@ linkout: https://gypsyplate.com/greek-lemon-rice/
 
 tags:
 - greek
-- side
+- sides
 - new
 
 servings: 6
