@@ -7,7 +7,7 @@ tags:
   - waitrose
 
 servings: 2-4
-time: 15
+time: 15m
 
 ingredients:
   - 1/2 cucumber, grated
