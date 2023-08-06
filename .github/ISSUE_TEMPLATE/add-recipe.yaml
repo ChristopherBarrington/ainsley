@@ -51,7 +51,7 @@ body:
         - label: indian
         - label: italian
         - label: quick
-        - label: side
+        - label: sides
 
   - type: textarea
     id: new_tags
