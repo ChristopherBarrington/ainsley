@@ -2,7 +2,7 @@
 title: Smash burger tacos
 summary: A tasty alternative to a burger
 
-linkout: 
+linkout: https://youtube.com/shorts/ZqCsldg1TKg
 
 tags:
 - quick
