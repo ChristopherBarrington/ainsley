@@ -23,6 +23,8 @@ ingredients:
 - lemon juice
 - pomegranate molasses
 - sumac
+- mint
+- parlsey
 
 directions:
 - chop the salad ingredients and place into a large mixing bowl
