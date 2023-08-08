@@ -41,7 +41,7 @@
 				{{ $hostname := (urls.Parse $linkout).Hostname }}
 
 				<!-- add youtube popup modal, if appropriate -->
-				{{ if eq $hostname "youtu.be" }}
+				{{ if or (eq $hostname "youtu.be") (eq $hostname "youtube.com") }}
 					{{ $linkout = replace $linkout "youtu.be" "youtube.com/embed" }}
 					<a class="js-modal-trigger" data-target="youtube-js-modal">
 						<span class="tag youtube icon-text is-primary is-light">
