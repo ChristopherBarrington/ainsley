@@ -6,7 +6,8 @@ linkout: https://youtube.com/shorts/ZqCsldg1TKg
 
 tags:
 - quick
-- mexican
+
+cuisine: american
 
 servings: 2
 time: 25m
