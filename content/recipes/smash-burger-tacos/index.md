@@ -2,14 +2,14 @@
 title: Smash burger tacos
 summary: A tasty alternative to a burger
 
-linkout: https://youtube.com/shorts/ZqCsldg1TKg?feature=share
+linkout: 
 
 tags:
 - quick
-
+- mexican
 
 servings: 2
-time: 25 m
+time: 25m
 
 ingredients:
 - 1 packet of vegan/vegetarian mince
