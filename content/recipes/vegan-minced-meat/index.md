@@ -18,7 +18,7 @@ ingredients:
 - 2 tbsp gluten-free tamari or soy sauce
 - 1 tsp ground cumin
 - 2 tsp ground coriander
-- ½ tsp sea salt, extra to taste
+- ½ tsp sea salt, extra to taste (maybe skip this, just use soy sauce?)
 - 1 tsp white pepper
 - 2 tsp smoked paprika
 - 2 tsp garlic powder
