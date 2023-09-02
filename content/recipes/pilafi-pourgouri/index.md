@@ -18,8 +18,8 @@ ingredients:
 - olive oil
 - 1 white onion, finely chopped
 - 4-6 cloves garlic, finely chopped (depends on their size, and how much you like garlic!)
-- 30g vermicelli noodles or spaghetti, broken into small pieces
-- 200g bulgur wheat
+- 30g vermicelli noodles (1 nest) or spaghetti, broken into small pieces
+- 200g bulgur wheat (2 cups)
 - salt
 
 directions:
