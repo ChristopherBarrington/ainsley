@@ -32,3 +32,6 @@ directions:
 - It is ready when the liquid is absorbed and the wheat has softened but still has a little bite to it. If you need to, you can always add more water whilst cooking.
 - Can be eaten hot or cold.
 ---
+
+* not great, too much bulgar wheat (we only used 1 cup and 1 nest)
+* lacked any kick, maybe under-seasoned or needs a spice or two
