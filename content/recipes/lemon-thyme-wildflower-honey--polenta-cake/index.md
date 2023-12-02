@@ -24,7 +24,7 @@ ingredients:
     - 3 tbsp lemon thyme leaves, plus extra for decorating
   - Vanilla cream:
     - 100g double cream
-    - 100g natural yogurt
+    - ~100g natural yogurt~
     - 0.5 tsp vanilla bean paste
   - Honey lemon syrup:
     - 75g Littleover Apiary
@@ -39,7 +39,7 @@ directions:
   - Gently fold into the polenta mixture, being careful to retain as much air as possible but making sure all the egg white is mixed in.
   - Pour into the cake tin and bake for 40-50 minutes until golden and cooked through (cover loosely with a sheet of foil after 30 minutes if it browns too quickly).
   - Cool the cake for 15 minutes in the tin, then remove and leave to cool completely on a wire rack.
-  - When ready to serve, whisk the double cream to very soft peaks, then whisk in the yogurt and vanilla bean paste; set aside.
+  - When ready to serve, whisk the double cream to very soft peaks, then whisk in the ~yogurt and~ vanilla bean paste; set aside.
   - Heat the syrup ingredients in a small pan until bubbling, then pour over the cake.
   - Top with extra thyme leaves, slice and serve with the vanilla cream.
 ---
