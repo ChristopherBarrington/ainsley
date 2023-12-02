@@ -12,15 +12,16 @@ servings: 10
 time: 1h 30m
 
 ingredients:
-  - 150g unsalted butter, softened, plus extra for greasing
-  - 150g Littleover Apiary Pure Organic 'Wildflower' Set Honey
-  - 3 eggs, separated
-  - 1 unwaxed lemon, zest
-  - 200g ground almonds
-  - 100g polenta
-  - 1.5 tsp baking powder
-  - 0.5 tsp salt
-  - 3 tbsp lemon thyme leaves, plus extra for decorating
+  - cake:
+    - 150g unsalted butter, softened, plus extra for greasing
+    - 150g Littleover Apiary Pure Organic 'Wildflower' Set Honey
+    - 3 eggs, separated
+    - 1 unwaxed lemon, zest
+    - 200g ground almonds
+    - 100g polenta
+    - 1.5 tsp baking powder
+    - 0.5 tsp salt
+    - 3 tbsp lemon thyme leaves, plus extra for decorating
   - Vanilla cream:
     - 100g double cream
     - 100g natural yogurt
