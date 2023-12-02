@@ -22,12 +22,12 @@ ingredients:
   * 0.5 tsp salt
   * 3 tbsp lemon thyme leaves, plus extra for decorating
 
-  * Vanilla cream
+  * Vanilla cream:
     * 100g double cream
     * ~100g natural yogurt~
     * 0.5 tsp vanilla bean paste
 
-  * Honey lemon syrup
+  * Honey lemon syrup:
     * 75g Littleover Apiary
     * Pure Organic 'Wildflower' Set Honey
     * 0.5 unwaxed lemon, juice
