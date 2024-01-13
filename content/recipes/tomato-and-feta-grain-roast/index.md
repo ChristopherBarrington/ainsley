@@ -35,7 +35,7 @@ directions:
 - Remove from the oven and stir the cooked grains and drained chickpeas into the tomatoes, gently and thoroughly, until evenly mixed.
 - Now take the feta and break it over the surface in several large chunks and crumbles.
 - Add olives/capers.
-- Pour the remaining 2 tbsp of oil all over, coating the cheese
+- Pour the remaining 2 tbsp of oil all over, coating the cheese.
 - Move an oven rack towards the top of the oven. Place the dish on it and roast for a further 15-20 minutes, until the feta shows patches of golden crust.
 - Serve hot at the table, spooned into shallow bowls.
 ---
