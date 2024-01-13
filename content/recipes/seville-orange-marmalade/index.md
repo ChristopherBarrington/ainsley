@@ -30,3 +30,5 @@ directions:
 - Leave the mixture to settle for 15 minutes, then skim off any foam. Stir and pour into warm sterilised jars, then top with a waxed disc or circle of baking parchment.
 - Seal when cool, then store the jars in a cool, dark place for up to 3 months. Once open, store in the fridge for up to 1 month.
 ---
+
+You'll need a large wide pan or preserving pan and clean muslin to make this recipe, plus sterilised jars for storing the marmalade.
