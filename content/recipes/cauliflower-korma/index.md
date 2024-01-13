@@ -32,3 +32,5 @@ directions:
 - Scatter with coriander and serve with steamed rice or naan breads.
 - A dollop of non-dairy yogurt alternative and a scattering of toasted cashews would go nicely, too.
 ---
+
+If you have a can of chickpeas to hand, drain and add along with the cauliflower in step 3. They'll make the curry go further and add extra protein.
