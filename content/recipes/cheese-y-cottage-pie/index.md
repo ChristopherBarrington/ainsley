@@ -40,3 +40,5 @@ directions:
 - Bake in the oven for 15 minutes.
 - Pop under the grill briefly to brown the top a little more, if liked.
 ---
+
+Leftover potato skins: Don't discard the potato skins after scooping out the flesh. Toss them with oil, salt, chopped woody herbs such as thyme or rosemary, and some chilli or paprika, then roast.
