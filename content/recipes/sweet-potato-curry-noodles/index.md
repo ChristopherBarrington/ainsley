@@ -1,6 +1,6 @@
 ---
 title: Sweet potato curry noodles
-summary: Bold, Thal-inspired flavours make this noodle bowl just the thing for cold winter nights.
+summary: Bold, Thai-inspired flavours make this noodle bowl just the thing for cold winter nights.
 
 linkout: 
 
@@ -20,7 +20,7 @@ ingredients:
 - 1 tbsp vegan fish sauce alternative (or light soy sauce)
 - 1 tsp maple syrup (or caster sugar)
 - 200g pack dried folded rice noodles
-- 200g pack trimmed sugar snap peas
+- 200g pack trimmed sugar snap peas (and/or other greens, such as Tenderstem or shredded cabbage)
 - Thai basil leaves, crispy fried onions and lime wedges, to serve (optional)
 
 directions:
