@@ -14,13 +14,13 @@ servings: 2
 time: 40m
 
 ingredients:
-- 'Wings'
+- Cauliflower ings:
   - 250g cauliflower florets, about 2-3cm wide
   - 100g cornflakes (opt for a natural, additive-free brand) - can be gluten-free
   - 2 tbsp toasted sesame seeds
   - 2 eggs
   - oil spray (eg coconut)
-- Hot sauce
+- Hot sauce:
   - 1 tbsp coconut oil or extra virgin olive oil
   - 4 tbsp tomato ketchup
   - 1/2 tbsp Sriracha or other hot chilli sauce, or to taste
@@ -29,10 +29,10 @@ ingredients:
   - 1 small garlic clove, crushed or 1/2 tsp garlic powder
 
 directions:
-- Hot sauce
+- Hot sauce:
   - Combine all the ingredients in a small saucepan and gently bring to the boil, stirring frequently.
   - Take off the heat, taste for seasoning and set aside.
-- 'Wings'
+- Cauliflower wings:
   - Bring a pan of well-salted water to the boil.
   - Add the cauliflower and blanch for 1 minute.
   - Remove and rinse under cold water until cool. Drain thoroughly
