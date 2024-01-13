@@ -18,6 +18,7 @@ ingredients:
 - 5cm thumb very fresh ginger, cut into thin matchsticks
 - 4 plump garlic cloves, sliced
 - 1 red chilli, thinly sliced
+- tofu, cubed
 - 250g broccoli, cut into 5cm pieces (include stems, peeled if thick, sliced diagonally), Tenderstem, greens etc
 - sea salt
 - 2 tbsp dark soy sauce or (gluten-free) tamari
@@ -27,6 +28,7 @@ ingredients:
 directions:
 - If serving this with cooked grains, get that sorted and standing by, the broccoli will be ready in less than 10 minutes once cooking starts.
 - Heat a wok or large frying pan over a medium-high heat and add the oil.
+- If adding tofu, stir-fry and set aside.
 - Add the cashews with the ginger, garlic and chilli.
 - Cook, stirring frequently, until everything turns a deep golden brown. (Keep an eye on the garlic and stop cooking fit stars to get dark before the rest).
 - Pour the contents of the pan, including most of the oil, into a medium bowl and set aside.
