@@ -35,3 +35,5 @@ directions:
 - Cool for 5 minutes in the tin, then transfer to a wire rack to cool completely.
 - Store in an airtight container for 2-3 days.
 ---
+
+Spelt flour adds a lovely nutty flavour to these, but you could also use a mix of plain and wholemeal flour or simply all plain flour.
