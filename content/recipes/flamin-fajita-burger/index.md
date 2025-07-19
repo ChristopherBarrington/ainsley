@@ -28,6 +28,6 @@ directions:
 - Heat olive oil in a pan over medium heat. Add peppers and onion, sprinkle with fajita seasoning, and sauté until soft and slightly charred.
 - Slice Tofoo Flamin’ Fajita tofu into burger-sized pieces and grill or pan-fry for 3–4 minutes on each side until golden.
 - Toast burger buns if desired.
-- Assemble burgers: layer lettuce, cooked peppers and onion, tofu, and vegan mayo or sauce in each bun.
+- Assemble burgers - layer lettuce, cooked peppers and onion, tofu, and vegan mayo or sauce in each bun.
 - Serve immediately.
 ---
