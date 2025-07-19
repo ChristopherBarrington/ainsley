@@ -1,6 +1,6 @@
 ---
 title: Spicy squash and lentil soup
-summary: This soup is a splicing of two comforting recipes\: a hearty squash soup and a spicy lentil dhal
+summary: "This soup is a splicing of two comforting recipes: a hearty squash soup and a spicy lentil dhal"
 
 linkout: 
 
